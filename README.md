@@ -1,6 +1,6 @@
 # tch-coreutils
 
-Statically linked arm binaries for Technicolor Gateways
+Statically linked arm binaries of the GNU coreutils, specifically for deployment on Technicolor Gateway routers.
 
 ## Building
 
