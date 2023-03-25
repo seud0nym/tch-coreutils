@@ -20,7 +20,7 @@ arch bcm53xx 40
 
 The following line also needs to be added to `/etc/opkg/customfeeds.conf`:
 ```
-src/gz wg_go https://raw.githubusercontent.com/seud0nym/tch-coreutils/repository/arm_cortex-a9/packages
+src/gz coreutils https://raw.githubusercontent.com/seud0nym/tch-coreutils/master/repository/arm_cortex-a9/packages
 ```
 
 64-bit devices (such as the Telstra Smart Modem Gen 3), would use `arm_cortex_a53` instead of `arm_cortex-a9`.
