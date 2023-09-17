@@ -29,7 +29,7 @@ src/gz coreutils https://raw.githubusercontent.com/seud0nym/tch-coreutils/master
 
 ### Release Binaries
 
-The release binaries were built using the `build.sh` script from https://github.com/luciusmagn/coreutils-static on Debian v11.6 (bullseye) running on a Marvell Feroceon 88FR131 (armv5tel) processor system with the following packages installed:
+The release binaries were built using the `build-binaries.sh` script (derived from https://github.com/luciusmagn/coreutils-static/blob/master/build.sh) on Debian v11.6 (bullseye) running on a Marvell Feroceon 88FR131 (armv5tel) processor system with the following packages installed:
 ```
 apt install make gcc upx curl
 ```
