@@ -1,1296 +1,1296 @@
 Package: coreutils-b2sum
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 46936
-Filename: coreutils-b2sum_9.2_arm_cortex-a9.ipk
-Size: 47181
-SHA256sum: c402bf90b9695572089c6f8d916be145ad7da96f35f2d02694bc2a1533bb83cd
+Installed-Size: 52712
+Filename: coreutils-b2sum_9.4_arm_cortex-a9.ipk
+Size: 52997
+SHA256sum: f4c36f1a012fba664a57eb78d568cbf1131c42cbf3cb1983a64c349ae53bca1b
 Description:  Statically-linked full version of standard GNU b2sum utility.
 
 Package: coreutils-base32
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 39908
-Filename: coreutils-base32_9.2_arm_cortex-a9.ipk
-Size: 40244
-SHA256sum: 5b9fed6e4f3ea999aae0bd2b42a319f468aa57057b88f7ab57165f3752954006
+Installed-Size: 45704
+Filename: coreutils-base32_9.4_arm_cortex-a9.ipk
+Size: 45931
+SHA256sum: 3f6928f39a56c77aa71665db67dcc9656a0b9208af83e08c536bd47cab33b12f
 Description:  Statically-linked full version of standard GNU base32 utility.
 
 Package: coreutils-base64
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 39864
-Filename: coreutils-base64_9.2_arm_cortex-a9.ipk
-Size: 40200
-SHA256sum: 14a90188c92418bd6a9e5849fe17e0f7788d3a65f55ced616fbffad9bb610f9e
+Installed-Size: 45632
+Filename: coreutils-base64_9.4_arm_cortex-a9.ipk
+Size: 45863
+SHA256sum: af7d8cb0d3b58435a8d293de0b905096922e2da0c226f28c9909f816aeeaf2ff
 Description:  Statically-linked full version of standard GNU base64 utility.
 
 Package: coreutils-basename
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 35580
-Filename: coreutils-basename_9.2_arm_cortex-a9.ipk
-Size: 35890
-SHA256sum: 4f7a512d687e47adc901060ba24420f1acd21cfd0f0ac5193a3d20db15842c12
+Installed-Size: 41288
+Filename: coreutils-basename_9.4_arm_cortex-a9.ipk
+Size: 41610
+SHA256sum: 6cab35979a66283ad5a260d006bd02036f72576617e5c978dd53b90c09a80580
 Description:  Statically-linked full version of standard GNU basename utility.
 
 Package: coreutils-basenc
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 43004
-Filename: coreutils-basenc_9.2_arm_cortex-a9.ipk
-Size: 43326
-SHA256sum: dcf26b6f2b2c4a1566c97ecf54079ee68c70b819cd721dd3938e288cecf63a42
+Installed-Size: 48832
+Filename: coreutils-basenc_9.4_arm_cortex-a9.ipk
+Size: 49137
+SHA256sum: 681c88b11c2db6e743d0e1e5a1510064712e127f041e40ff8660c1a940d816f4
 Description:  Statically-linked full version of standard GNU basenc utility.
 
 Package: coreutils-cat
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 39528
-Filename: coreutils-cat_9.2_arm_cortex-a9.ipk
-Size: 39854
-SHA256sum: 0dcd0ead339295cfb716c48170fd8729580082843368df758c41232340395f58
+Installed-Size: 44628
+Filename: coreutils-cat_9.4_arm_cortex-a9.ipk
+Size: 44861
+SHA256sum: 6c4fd9b1b14526f6874e8542fb1c211193633ca465410b504d05b6bbbb14acbd
 Description:  Statically-linked full version of standard GNU cat utility.
 
 Package: coreutils-chcon
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 49100
-Filename: coreutils-chcon_9.2_arm_cortex-a9.ipk
-Size: 49403
-SHA256sum: b35cf3d79a8f914dbcbcf894e9d43fab430a481ec71f86d0bb20d200614fc3a2
+Installed-Size: 53976
+Filename: coreutils-chcon_9.4_arm_cortex-a9.ipk
+Size: 54272
+SHA256sum: 66fb9cfac34c8a20bfe2026f338ec1e0874d0ac2675e51023b4978bac39ab41f
 Description:  Statically-linked full version of standard GNU chcon utility.
 
 Package: coreutils-chgrp
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 52752
-Filename: coreutils-chgrp_9.2_arm_cortex-a9.ipk
-Size: 53060
-SHA256sum: d01cd2e57a85b220cda762c8352f725d7f1e099b9e4e69fa78984b1f71ab8ea5
+Installed-Size: 57800
+Filename: coreutils-chgrp_9.4_arm_cortex-a9.ipk
+Size: 58069
+SHA256sum: 6829e43363a763dd79cdf4c3ec525962de131f5be2462e5fee4d560485c8b273
 Description:  Statically-linked full version of standard GNU chgrp utility.
 
 Package: coreutils-chmod
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 47856
-Filename: coreutils-chmod_9.2_arm_cortex-a9.ipk
-Size: 48131
-SHA256sum: d6e244e5feff676eace7a3b343ecb1d141c6857c3b3f927e680bf836c56f19c0
+Installed-Size: 52884
+Filename: coreutils-chmod_9.4_arm_cortex-a9.ipk
+Size: 53188
+SHA256sum: 3101e6746dc8619f94dffb455476df4057518dad5a6e7fd2b9bae5f531ea38a1
 Description:  Statically-linked full version of standard GNU chmod utility.
 
 Package: coreutils-chown
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 53576
-Filename: coreutils-chown_9.2_arm_cortex-a9.ipk
-Size: 53865
-SHA256sum: b95a4d1258b4366702c959dc70df78d7191626ab8aa842ffaf4df3649eed29f9
+Installed-Size: 58584
+Filename: coreutils-chown_9.4_arm_cortex-a9.ipk
+Size: 58923
+SHA256sum: 177ecb1b1354174c3dd36493152e3c362def13554b3c4941000a35ca9435d6c2
 Description:  Statically-linked full version of standard GNU chown utility.
 
 Package: coreutils-chroot
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 52432
-Filename: coreutils-chroot_9.2_arm_cortex-a9.ipk
-Size: 52721
-SHA256sum: 50abe8563236c88d77ae946c3788ce1dbc1bde2e4369cc613ca4f6efbc775386
+Installed-Size: 57804
+Filename: coreutils-chroot_9.4_arm_cortex-a9.ipk
+Size: 58086
+SHA256sum: 73fd8f957bc83e35d74d0a937d540f8030a7d4e65d6c966fb00bb48365d11060
 Description:  Statically-linked full version of standard GNU chroot utility.
 
 Package: coreutils-cksum
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 92880
-Filename: coreutils-cksum_9.2_arm_cortex-a9.ipk
-Size: 93218
-SHA256sum: b111ef3dd1b51a33de169fdbee0a26cbd74b36005952a3b7ef3f033a7b628208
+Installed-Size: 98364
+Filename: coreutils-cksum_9.4_arm_cortex-a9.ipk
+Size: 98644
+SHA256sum: f5fbeee6f70306f4655fe13098c2340e2633189144c1b119377223cc70a41cf2
 Description:  Statically-linked full version of standard GNU cksum utility.
 
 Package: coreutils-comm
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 40796
-Filename: coreutils-comm_9.2_arm_cortex-a9.ipk
-Size: 41119
-SHA256sum: f0469bc8a994a4d72e4dddcd9dd91b7147b1ddb23abd76f42e9cb9dbc8ac80fe
+Installed-Size: 47300
+Filename: coreutils-comm_9.4_arm_cortex-a9.ipk
+Size: 47533
+SHA256sum: bdc50e7233c3d36e586eaa22a58d1ba84db9388e9e1ec23623fb8adec264a1da
 Description:  Statically-linked full version of standard GNU comm utility.
 
 Package: coreutils-cp
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 66540
-Filename: coreutils-cp_9.2_arm_cortex-a9.ipk
-Size: 66840
-SHA256sum: 7157272521d9e1fad70457cb80608e5bf38aa2b5860b34f68a1c6090bd4f224e
+Installed-Size: 72496
+Filename: coreutils-cp_9.4_arm_cortex-a9.ipk
+Size: 72876
+SHA256sum: 0e8a2e276881a11aef3f0823cef32ef8be244d4a41f377d1d58f99b6f2db9a7e
 Description:  Statically-linked full version of standard GNU cp utility.
 
 Package: coreutils-csplit
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 72780
-Filename: coreutils-csplit_9.2_arm_cortex-a9.ipk
-Size: 73166
-SHA256sum: bdf9912f4e38053a49c835aaff0916a30fb09aaf1bbb19f85c8d180ff031c2a5
+Installed-Size: 78472
+Filename: coreutils-csplit_9.4_arm_cortex-a9.ipk
+Size: 78870
+SHA256sum: bacd929238fda539999d9f24fd359cf6aa8206de6b557255c3d23ffe3434d6b0
 Description:  Statically-linked full version of standard GNU csplit utility.
 
 Package: coreutils-cut
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 41772
-Filename: coreutils-cut_9.2_arm_cortex-a9.ipk
-Size: 42096
-SHA256sum: 762d9b6779d61e36d748457efe70fb6c6018f29dbdde0cd68205002b59d8d07e
+Installed-Size: 47592
+Filename: coreutils-cut_9.4_arm_cortex-a9.ipk
+Size: 47808
+SHA256sum: c12d086ec14a7ad1db5f2360d0f76f6178a8af3224da992c637a423e1c9a8306
 Description:  Statically-linked full version of standard GNU cut utility.
 
 Package: coreutils-date
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 62996
-Filename: coreutils-date_9.2_arm_cortex-a9.ipk
-Size: 63327
-SHA256sum: cda24ac590897cb415c8d0d8818006ee60c03453b52ee427c2cda71d38b9427b
+Installed-Size: 68360
+Filename: coreutils-date_9.4_arm_cortex-a9.ipk
+Size: 68772
+SHA256sum: 128f154b8dc4892c2b20ffb851ad54738ba948213811d526c86f50b1f6124c79
 Description:  Statically-linked full version of standard GNU date utility.
 
 Package: coreutils-dd
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 52392
-Filename: coreutils-dd_9.2_arm_cortex-a9.ipk
-Size: 52676
-SHA256sum: c4673dc9438fe379819cb77e21e0ec0777dd4ae2a2063a544b58c3bca2ffe129
+Installed-Size: 57928
+Filename: coreutils-dd_9.4_arm_cortex-a9.ipk
+Size: 58205
+SHA256sum: d5e430dee8b2d7404c8ceb6bafbc052e36c9208f213a7bea21f2fe1f9d0ec25f
 Description:  Statically-linked full version of standard GNU dd utility.
 
 Package: coreutils-df
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 64956
-Filename: coreutils-df_9.2_arm_cortex-a9.ipk
-Size: 65290
-SHA256sum: c7ab55ad45bd2d718cd7631ef1a722ea6f5d5800e3c39aa0df34210e1fb5edb2
+Installed-Size: 70488
+Filename: coreutils-df_9.4_arm_cortex-a9.ipk
+Size: 70886
+SHA256sum: 1b1fa48c0342df1dc92afa04241db4d32f29591ead2140abdcf394ca596aff04
 Description:  Statically-linked full version of standard GNU df utility.
 
 Package: coreutils-dir
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 95152
-Filename: coreutils-dir_9.2_arm_cortex-a9.ipk
-Size: 95482
-SHA256sum: d5072f9f21438d6e166576c33f07e2894ef02dae69083d6355d3b2a0f694acb4
+Installed-Size: 100884
+Filename: coreutils-dir_9.4_arm_cortex-a9.ipk
+Size: 101301
+SHA256sum: e83a6f3157e163a77892d9d77104e73ae6ade53da3197204f3a24d02a29ddb09
 Description:  Statically-linked full version of standard GNU dir utility.
 
 Package: coreutils-dircolors
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 50296
-Filename: coreutils-dircolors_9.2_arm_cortex-a9.ipk
-Size: 50598
-SHA256sum: f7b3b501190bcb8955c1bebe97919eeec6c238f88932509527990cf1c459ed33
+Installed-Size: 55624
+Filename: coreutils-dircolors_9.4_arm_cortex-a9.ipk
+Size: 55923
+SHA256sum: 6d4ae0f70ebb9d9404205df571f850440ff000aa353845ad237f348d72d49e02
 Description:  Statically-linked full version of standard GNU dircolors utility.
 
 Package: coreutils-dirname
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 35188
-Filename: coreutils-dirname_9.2_arm_cortex-a9.ipk
-Size: 35503
-SHA256sum: f0fcd01748b7411719add6af9bf30e44fbda25bf2e8d5374f202238e45407133
+Installed-Size: 40916
+Filename: coreutils-dirname_9.4_arm_cortex-a9.ipk
+Size: 41247
+SHA256sum: 9ee9b14de3a47f77a863d4e20f320a25b931ee137f10e85d0aa196e0b829d6e7
 Description:  Statically-linked full version of standard GNU dirname utility.
 
 Package: coreutils-du
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 105568
-Filename: coreutils-du_9.2_arm_cortex-a9.ipk
-Size: 105960
-SHA256sum: db4746ec8688698e7c242cf325bfb3ed883fbcd246e3bd6d7810e8751147af54
+Installed-Size: 111412
+Filename: coreutils-du_9.4_arm_cortex-a9.ipk
+Size: 111815
+SHA256sum: 19192d6e6cc59da77e55e906cbd38e5635a509b20264ef9ae904ee0768da2339
 Description:  Statically-linked full version of standard GNU du utility.
 
 Package: coreutils-echo
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 33764
-Filename: coreutils-echo_9.2_arm_cortex-a9.ipk
-Size: 34019
-SHA256sum: 4385c9021d1a30753981610ec1eb41a9c29b7aff78378af89e140a1ae8599a88
+Installed-Size: 39496
+Filename: coreutils-echo_9.4_arm_cortex-a9.ipk
+Size: 39823
+SHA256sum: 8eb678a4296bb3958eeb1e7d86713a060d488a64efe57f6526930dd13b0a281b
 Description:  Statically-linked full version of standard GNU echo utility.
 
 Package: coreutils-env
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 43040
-Filename: coreutils-env_9.2_arm_cortex-a9.ipk
-Size: 43360
-SHA256sum: 68a682f871e5c6b6f38d58700625b8708af5ec2cc08015a07e5316f162efa015
+Installed-Size: 48524
+Filename: coreutils-env_9.4_arm_cortex-a9.ipk
+Size: 48813
+SHA256sum: cf02139d15dcbae44c683d38e417b5959740c91a247fdf76e9e554bf20c78c72
 Description:  Statically-linked full version of standard GNU env utility.
 
 Package: coreutils-expand
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 38428
-Filename: coreutils-expand_9.2_arm_cortex-a9.ipk
-Size: 38765
-SHA256sum: 92110c277c8739bd7b1c75cf614f569f295e43fb92e0abc22ab7fbc0859b58b0
+Installed-Size: 44072
+Filename: coreutils-expand_9.4_arm_cortex-a9.ipk
+Size: 44382
+SHA256sum: f860643bbbbcdc986db49a23c0708ac827b64bb68878429a67aa22f83becda01
 Description:  Statically-linked full version of standard GNU expand utility.
 
 Package: coreutils-expr
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 73340
-Filename: coreutils-expr_9.2_arm_cortex-a9.ipk
-Size: 73726
-SHA256sum: c790b96f7e5970df207f5193e0a19341d89887f56bda93c30fc6a7812ff8da71
+Installed-Size: 79732
+Filename: coreutils-expr_9.4_arm_cortex-a9.ipk
+Size: 80158
+SHA256sum: 405a22b7af8dba36087d6a0472447e3cd18afc55e30a66beb276af993f73ff05
 Description:  Statically-linked full version of standard GNU expr utility.
 
 Package: coreutils-factor
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 177324
-Filename: coreutils-factor_9.2_arm_cortex-a9.ipk
-Size: 177648
-SHA256sum: 8b065a95e648288668179a997a560248366b00bbc3ace63709e2b2ee5b96b466
+Installed-Size: 71540
+Filename: coreutils-factor_9.4_arm_cortex-a9.ipk
+Size: 71939
+SHA256sum: 0e12c053912a5c653321b80ce6fc4d25a85615d0f16bcc5cb7d36b5a6007cced
 Description:  Statically-linked full version of standard GNU factor utility.
 
 Package: coreutils-false
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 32724
-Filename: coreutils-false_9.2_arm_cortex-a9.ipk
-Size: 32948
-SHA256sum: e045d0ecfa4e75360b9dec0be7ccec50b01615e7b63a992e36af1397f0fa2d03
+Installed-Size: 38444
+Filename: coreutils-false_9.4_arm_cortex-a9.ipk
+Size: 38778
+SHA256sum: 66f004d8ce748f861c528e515d4850d7c7c79cbfd5feea13ac833588a957d373
 Description:  Statically-linked full version of standard GNU false utility.
 
 Package: coreutils-fmt
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 41648
-Filename: coreutils-fmt_9.2_arm_cortex-a9.ipk
-Size: 41963
-SHA256sum: c0844f593bb2a30f45b6f5000c9ee1a4e139976c7a7d29bda87db1d1f6834ecd
+Installed-Size: 47228
+Filename: coreutils-fmt_9.4_arm_cortex-a9.ipk
+Size: 47475
+SHA256sum: b6cb4ff186607397b5ee92d3ab0a2f82142a6317493c2132950ee5e553d103f8
 Description:  Statically-linked full version of standard GNU fmt utility.
 
 Package: coreutils-fold
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 39112
-Filename: coreutils-fold_9.2_arm_cortex-a9.ipk
-Size: 39437
-SHA256sum: 711d46dde70cb8c792b9750a040e9f0637c71fdeffa142d128915c81ab82615b
+Installed-Size: 44804
+Filename: coreutils-fold_9.4_arm_cortex-a9.ipk
+Size: 45046
+SHA256sum: abb04b2751965fc8a390b8e4ce8b7f6ca4ecc9ea1367d48e7bf7846c8e6568cd
 Description:  Statically-linked full version of standard GNU fold utility.
 
 Package: coreutils-getlimits
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 40988
-Filename: coreutils-getlimits_9.2_arm_cortex-a9.ipk
-Size: 41328
-SHA256sum: 9087e5e3ae6decc3a729535b52b19b1717237c8a0afb28c49b2aa21c9b1f181a
+Installed-Size: 46516
+Filename: coreutils-getlimits_9.4_arm_cortex-a9.ipk
+Size: 46765
+SHA256sum: 78770bac0f240ec54bb442f649b96c4140812856883b3bccc50df3b0ca2ad45a
 Description:  Statically-linked full version of standard GNU getlimits utility.
 
 Package: coreutils-ginstall
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 75084
-Filename: coreutils-ginstall_9.2_arm_cortex-a9.ipk
-Size: 75444
-SHA256sum: 5c5ff9fc8ba06bbe71cdc6759f6982dbe9227371ea2880acee80f1ad22ea5ffb
+Installed-Size: 80576
+Filename: coreutils-ginstall_9.4_arm_cortex-a9.ipk
+Size: 80990
+SHA256sum: 030ca35729a3716cd5c1991b15cac3e41f2cc4aafa602962aaef2454a38e3ce5
 Description:  Statically-linked full version of standard GNU ginstall utility.
 
 Package: coreutils-groups
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 39312
-Filename: coreutils-groups_9.2_arm_cortex-a9.ipk
-Size: 39638
-SHA256sum: 3a3ab45acba75bb94686eaf026878cf28ef2f2a14d5edb8b259d362ab04105a7
+Installed-Size: 45036
+Filename: coreutils-groups_9.4_arm_cortex-a9.ipk
+Size: 45282
+SHA256sum: 36062e0ecbf53804daaf3a67cdcc490eea3c1efe99043df159bc00a14a0f6039
 Description:  Statically-linked full version of standard GNU groups utility.
 
 Package: coreutils-head
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 41672
-Filename: coreutils-head_9.2_arm_cortex-a9.ipk
-Size: 42005
-SHA256sum: 4389a88087cad4e96374cedf727abd1589633cbac3e73cbd83d75335b32b6cd4
+Installed-Size: 46744
+Filename: coreutils-head_9.4_arm_cortex-a9.ipk
+Size: 46983
+SHA256sum: d7836991eb89d2c015d752dcbcf5788234ff5c51a43a16d0f188bed440212c7b
 Description:  Statically-linked full version of standard GNU head utility.
 
 Package: coreutils-hostid
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 34908
-Filename: coreutils-hostid_9.2_arm_cortex-a9.ipk
-Size: 35204
-SHA256sum: ad295e70ffbf6a902bdb6078094a23ce669852c74504cd7ee2f40ca985bbf2da
+Installed-Size: 40632
+Filename: coreutils-hostid_9.4_arm_cortex-a9.ipk
+Size: 40952
+SHA256sum: 9c2f92e4ceebec7726d78a81963257956beed2cd46200e30b5a4d19991b32ad5
 Description:  Statically-linked full version of standard GNU hostid utility.
 
 Package: coreutils-id
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 43092
-Filename: coreutils-id_9.2_arm_cortex-a9.ipk
-Size: 43400
-SHA256sum: 6b65a409b8149ec05b15faa1bd43f1faeeee1f92207726ffb7b14d7f81a13e86
+Installed-Size: 48844
+Filename: coreutils-id_9.4_arm_cortex-a9.ipk
+Size: 49120
+SHA256sum: ed35e3d7c1b782e122fe2c1fdbeb479458c95724e4071c42ee8d26eca627802a
 Description:  Statically-linked full version of standard GNU id utility.
 
 Package: coreutils-join
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 45912
-Filename: coreutils-join_9.2_arm_cortex-a9.ipk
-Size: 46142
-SHA256sum: 4ad52e80ae80f6ec095b9b4d8d90ae1c0400965dba583763cd59c6d03402b0ff
+Installed-Size: 52396
+Filename: coreutils-join_9.4_arm_cortex-a9.ipk
+Size: 52692
+SHA256sum: 119b8b900c65cdf9e7f2843647f3112faed5af4a2d168f86837fea95ace1c68e
 Description:  Statically-linked full version of standard GNU join utility.
 
 Package: coreutils-kill
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 38748
-Filename: coreutils-kill_9.2_arm_cortex-a9.ipk
-Size: 39085
-SHA256sum: 0da257c3b13087c57d7ca3821c756834f74e098cee2118c084837325c8aa5546
+Installed-Size: 44288
+Filename: coreutils-kill_9.4_arm_cortex-a9.ipk
+Size: 44553
+SHA256sum: ce45f07c7c287ee198c7e847c10b58b13d3efb93be9bb845862f7f8e6d903abe
 Description:  Statically-linked full version of standard GNU kill utility.
 
 Package: coreutils-link
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 35084
-Filename: coreutils-link_9.2_arm_cortex-a9.ipk
-Size: 35390
-SHA256sum: d8886a2ddfe206424d1a5afe289d55ba81baf4ea7d3da2a1448354029bbb853c
+Installed-Size: 40792
+Filename: coreutils-link_9.4_arm_cortex-a9.ipk
+Size: 41120
+SHA256sum: 2ce8f86f770453ac2401f66b6090b3f338d9a24e88e40faa188eecc9c91fc282
 Description:  Statically-linked full version of standard GNU link utility.
 
 Package: coreutils-ln
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 50372
-Filename: coreutils-ln_9.2_arm_cortex-a9.ipk
-Size: 50668
-SHA256sum: f4e065514f26f856b9165269101afe719f748964b246bf57122d51c063942727
+Installed-Size: 55704
+Filename: coreutils-ln_9.4_arm_cortex-a9.ipk
+Size: 55988
+SHA256sum: 138e7a6c6b6dab1ff7dc748ed0771af9224dad4f24b2caa20687e2f6556c3609
 Description:  Statically-linked full version of standard GNU ln utility.
 
 Package: coreutils-logname
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 34980
-Filename: coreutils-logname_9.2_arm_cortex-a9.ipk
-Size: 35298
-SHA256sum: 853ee5a0454b0000dd47f75953f44a2be663b1066a36f553fedcf2df80f6c4f8
+Installed-Size: 40704
+Filename: coreutils-logname_9.4_arm_cortex-a9.ipk
+Size: 41031
+SHA256sum: e78cc9d813e9bbdd2b6605bb9dc6d53055656e5ed66d7ef1d038e8037049f5b0
 Description:  Statically-linked full version of standard GNU logname utility.
 
 Package: coreutils-ls
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 95152
-Filename: coreutils-ls_9.2_arm_cortex-a9.ipk
-Size: 95482
-SHA256sum: f55a685148acff3c4d727bb7a36046ac270b5763d997ab988c55fe8c17a52768
+Installed-Size: 100916
+Filename: coreutils-ls_9.4_arm_cortex-a9.ipk
+Size: 101332
+SHA256sum: 27de2905b765b7761d82520cbeb2852cd945ca069927176500670a044a81753c
 Description:  Statically-linked full version of standard GNU ls utility.
 
 Package: coreutils-make-prime-list
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 24524
-Filename: coreutils-make-prime-list_9.2_arm_cortex-a9.ipk
-Size: 24682
-SHA256sum: a0f5d4e24f6d79efb57dd2966217ead8c7ed9814138c8ccdcae6c7c17f71ee09
+Installed-Size: 24400
+Filename: coreutils-make-prime-list_9.4_arm_cortex-a9.ipk
+Size: 24548
+SHA256sum: 0191878902b921dc0db8d65a31d329710cf2ca9140ef140c37a1b8484b3baa35
 Description:  Statically-linked full version of standard GNU make-prime-list utility.
 
 Package: coreutils-md5sum
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 41548
-Filename: coreutils-md5sum_9.2_arm_cortex-a9.ipk
-Size: 41882
-SHA256sum: 9a8bae131475cedb9bd92302a0645ca8be0343d7510dffe5e91d17e5a41b273e
+Installed-Size: 47344
+Filename: coreutils-md5sum_9.4_arm_cortex-a9.ipk
+Size: 47585
+SHA256sum: e2b92c54be477a76da2114d7cece13c8084a06c8709eea04624a2b47f5f345d6
 Description:  Statically-linked full version of standard GNU md5sum utility.
 
 Package: coreutils-mkdir
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 41056
-Filename: coreutils-mkdir_9.2_arm_cortex-a9.ipk
-Size: 41385
-SHA256sum: e142807988965761e9b44f9d04c44dca2190d1c41039362caeeceb1d0d8fb336
+Installed-Size: 46756
+Filename: coreutils-mkdir_9.4_arm_cortex-a9.ipk
+Size: 46994
+SHA256sum: 678da0672bb78913c0320876d73f2c26665d8035c33d2062150a65bc6cbf10be
 Description:  Statically-linked full version of standard GNU mkdir utility.
 
 Package: coreutils-mkfifo
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 36332
-Filename: coreutils-mkfifo_9.2_arm_cortex-a9.ipk
-Size: 36651
-SHA256sum: 53de789e23b6f380e815e3b4f4db2d549f8b936af9c764911b909d1cadaee64b
+Installed-Size: 41940
+Filename: coreutils-mkfifo_9.4_arm_cortex-a9.ipk
+Size: 42268
+SHA256sum: 497613ffb4ab2830338556498a04101fe8fda815cb4fc418da8e0e4cb70da3fb
 Description:  Statically-linked full version of standard GNU mkfifo utility.
 
 Package: coreutils-mknod
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 39076
-Filename: coreutils-mknod_9.2_arm_cortex-a9.ipk
-Size: 39413
-SHA256sum: 02808aa39532c3c45a8bf8a1646b113262b85d7ee2331505c593a136925303e8
+Installed-Size: 44724
+Filename: coreutils-mknod_9.4_arm_cortex-a9.ipk
+Size: 44951
+SHA256sum: b20e85ff114a795a69afe439a0fa5890a881d20376f11c7a74db28204da23f45
 Description:  Statically-linked full version of standard GNU mknod utility.
 
 Package: coreutils-mktemp
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 38132
-Filename: coreutils-mktemp_9.2_arm_cortex-a9.ipk
-Size: 38461
-SHA256sum: 62db9d1b9af5c074bafcba2edab74841f33855914ebbc5f1e61ad3fd2fd3e545
+Installed-Size: 43780
+Filename: coreutils-mktemp_9.4_arm_cortex-a9.ipk
+Size: 44094
+SHA256sum: 8b312bbcf8af18927ea7da7158e9819b914d30ac9b2c101265073c666e20424c
 Description:  Statically-linked full version of standard GNU mktemp utility.
 
 Package: coreutils-mv
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 69788
-Filename: coreutils-mv_9.2_arm_cortex-a9.ipk
-Size: 70197
-SHA256sum: a22db529893025e735e7f97c0fe4c32b7880246377f839f3d1ed25b0da2469e6
+Installed-Size: 75720
+Filename: coreutils-mv_9.4_arm_cortex-a9.ipk
+Size: 76075
+SHA256sum: 437d71cdff6eaff09a37691de0c2dc4926af350798d59f9e5519f955c5192e0f
 Description:  Statically-linked full version of standard GNU mv utility.
 
 Package: coreutils-nice
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 37712
-Filename: coreutils-nice_9.2_arm_cortex-a9.ipk
-Size: 38052
-SHA256sum: 4c9414967479b43b5c6c7de373c9b6aef618e4692ac649042663a5b12ad068a5
+Installed-Size: 43424
+Filename: coreutils-nice_9.4_arm_cortex-a9.ipk
+Size: 43728
+SHA256sum: 15d4c48eb3c4a59a03d23f5ad9b6321488376c0f56f1caa41ef300b1340745a9
 Description:  Statically-linked full version of standard GNU nice utility.
 
 Package: coreutils-nl
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 68992
-Filename: coreutils-nl_9.2_arm_cortex-a9.ipk
-Size: 69391
-SHA256sum: 1fb7507393dd7e1f73b1a1d5ff879523717ba5ac74a2a556757f317d1e3de905
+Installed-Size: 74912
+Filename: coreutils-nl_9.4_arm_cortex-a9.ipk
+Size: 75271
+SHA256sum: de7c048224bf10f8fb29ea8a4185fa563831594dab40a0052abdeba6cb5ad29b
 Description:  Statically-linked full version of standard GNU nl utility.
 
 Package: coreutils-nohup
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 37180
-Filename: coreutils-nohup_9.2_arm_cortex-a9.ipk
-Size: 37494
-SHA256sum: a9c9b2ab2ea45c55ef7fcfc7f856b034300fab1b82e2c146e27cf555aad3d42c
+Installed-Size: 42840
+Filename: coreutils-nohup_9.4_arm_cortex-a9.ipk
+Size: 43164
+SHA256sum: 2149884565a78920ffbb86e672d72e6cec240c4aff5e9733a94b74f849435249
 Description:  Statically-linked full version of standard GNU nohup utility.
 
 Package: coreutils-nproc
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 38012
-Filename: coreutils-nproc_9.2_arm_cortex-a9.ipk
-Size: 38360
-SHA256sum: a95cd4aea7fe928d2bc98dfd4ea1547909d5d3938629151b598479ccf1fa8dd1
+Installed-Size: 43844
+Filename: coreutils-nproc_9.4_arm_cortex-a9.ipk
+Size: 44147
+SHA256sum: 0ff76191136e32cb4f9bb43942d4257a7c614165d743ba77c2d5251a07be2329
 Description:  Statically-linked full version of standard GNU nproc utility.
 
 Package: coreutils-numfmt
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 50500
-Filename: coreutils-numfmt_9.2_arm_cortex-a9.ipk
-Size: 50806
-SHA256sum: 8b8ee742cda778c9422c67e9be899304ff493d591f4d01700e4882d54ed36e9e
+Installed-Size: 55964
+Filename: coreutils-numfmt_9.4_arm_cortex-a9.ipk
+Size: 56257
+SHA256sum: 1495d1f54d6fb8add6bec3bbd1e51c869cd7b3a2f5b90903edfcef99543b2f18
 Description:  Statically-linked full version of standard GNU numfmt utility.
 
 Package: coreutils-od
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 52708
-Filename: coreutils-od_9.2_arm_cortex-a9.ipk
-Size: 53010
-SHA256sum: e6eb26e635373b359c54dac1ae79b2074ddc9dd601b0bdb65c2dcb66b20dcbc5
+Installed-Size: 58000
+Filename: coreutils-od_9.4_arm_cortex-a9.ipk
+Size: 58327
+SHA256sum: e2b48f9d4dc93ec4c07b704c15f2ac2845ba0f8fc5a9b9c605a8de0a7b8c29b7
 Description:  Statically-linked full version of standard GNU od utility.
 
 Package: coreutils-paste
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 37368
-Filename: coreutils-paste_9.2_arm_cortex-a9.ipk
-Size: 37660
-SHA256sum: e6543b8b227cbbf74893ce13bcab9c01968d168f817b896dfaf541224e289994
+Installed-Size: 43124
+Filename: coreutils-paste_9.4_arm_cortex-a9.ipk
+Size: 43452
+SHA256sum: 1e40b0d762c14c3452827cba7fa385ae1e0adde1540968aafc2388e43f38686b
 Description:  Statically-linked full version of standard GNU paste utility.
 
 Package: coreutils-pathchk
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 36628
-Filename: coreutils-pathchk_9.2_arm_cortex-a9.ipk
-Size: 36941
-SHA256sum: 673f1d293e16fcbefbc813d854e8ba7306e9f785810e9fbb6af4df926a9b7a7f
+Installed-Size: 41724
+Filename: coreutils-pathchk_9.4_arm_cortex-a9.ipk
+Size: 42050
+SHA256sum: b64964721b8e85e094b3a954ddf26a38f2ae9960b4f8e9cbcc8a02d5bfe59442
 Description:  Statically-linked full version of standard GNU pathchk utility.
 
 Package: coreutils-pinky
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 57896
-Filename: coreutils-pinky_9.2_arm_cortex-a9.ipk
-Size: 58182
-SHA256sum: cf42a5ee72134b9798c4ca10df05124e5f1bc01555223ffe9c0fe4d2135982b5
+Installed-Size: 65756
+Filename: coreutils-pinky_9.4_arm_cortex-a9.ipk
+Size: 66038
+SHA256sum: 3a471f2b24a4a940c3b23506483f0543ce9dc279ec8658997272e27db8112e54
 Description:  Statically-linked full version of standard GNU pinky utility.
 
 Package: coreutils-pr
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 61204
-Filename: coreutils-pr_9.2_arm_cortex-a9.ipk
-Size: 61559
-SHA256sum: 58067cefc81ffbbb8c74a7109e05dfdf4034122d95a0e85b0ad9a78c967f77f6
+Installed-Size: 66912
+Filename: coreutils-pr_9.4_arm_cortex-a9.ipk
+Size: 67241
+SHA256sum: e52fdf9d22c08e3bab8411154fd04ee479d294de015a733764d169d32324fcd1
 Description:  Statically-linked full version of standard GNU pr utility.
 
 Package: coreutils-printenv
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 35076
-Filename: coreutils-printenv_9.2_arm_cortex-a9.ipk
-Size: 35395
-SHA256sum: aaa7799bc5bd820f717e4194c6bbe328bec2318b45394adb8082418a006f1bfe
+Installed-Size: 40848
+Filename: coreutils-printenv_9.4_arm_cortex-a9.ipk
+Size: 41190
+SHA256sum: fb5c35adf84c333bc99c74e3e73a287152890694ad7dd66b7dd289819036a6b4
 Description:  Statically-linked full version of standard GNU printenv utility.
 
 Package: coreutils-printf
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 151768
-Filename: coreutils-printf_9.2_arm_cortex-a9.ipk
-Size: 152118
-SHA256sum: fb6030f34de237b41d6878a8cd725f639ed58da37400bb8e67062fc79d678be8
+Installed-Size: 157308
+Filename: coreutils-printf_9.4_arm_cortex-a9.ipk
+Size: 157652
+SHA256sum: 19e6404dde17eb4e2d0c4b6cfd499c84736f45baa944d4c6ce09966cc9701384
 Description:  Statically-linked full version of standard GNU printf utility.
 
 Package: coreutils-ptx
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 187080
-Filename: coreutils-ptx_9.2_arm_cortex-a9.ipk
-Size: 187414
-SHA256sum: 6c5ff13689a9e6a0307275a51ab2ff75352847abe94770741bf485a497da0683
+Installed-Size: 81060
+Filename: coreutils-ptx_9.4_arm_cortex-a9.ipk
+Size: 81350
+SHA256sum: 2aa77070e4f6c88248650043a6933f974d5eb12d6b80b3743cc0237098495bdc
 Description:  Statically-linked full version of standard GNU ptx utility.
 
 Package: coreutils-pwd
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 39512
-Filename: coreutils-pwd_9.2_arm_cortex-a9.ipk
-Size: 39832
-SHA256sum: 0d5808f75a600f4372353d26cd5861a98520c362429fadb989996ce923c6efcf
+Installed-Size: 44312
+Filename: coreutils-pwd_9.4_arm_cortex-a9.ipk
+Size: 44557
+SHA256sum: 72bde991d90e33d47518f855e70a213fe5c22b701a1cabe365e0f0985a37eb59
 Description:  Statically-linked full version of standard GNU pwd utility.
 
 Package: coreutils-readlink
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 42844
-Filename: coreutils-readlink_9.2_arm_cortex-a9.ipk
-Size: 43183
-SHA256sum: ed2b002a5039f0fa61d2d623765087d5930d675e6380f9423b5ff71ca0970154
+Installed-Size: 47672
+Filename: coreutils-readlink_9.4_arm_cortex-a9.ipk
+Size: 47914
+SHA256sum: a63bd1b53644722fff815033adfa22be9102128527eba77286cdcc64c02ecfc8
 Description:  Statically-linked full version of standard GNU readlink utility.
 
 Package: coreutils-realpath
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 43468
-Filename: coreutils-realpath_9.2_arm_cortex-a9.ipk
-Size: 43789
-SHA256sum: 8b5488a2b7791a1b7dc48960a14eb8696a4d52ffec41935bde9d3e5f7b670ad8
+Installed-Size: 48316
+Filename: coreutils-realpath_9.4_arm_cortex-a9.ipk
+Size: 48616
+SHA256sum: a4334610bd01a35be559e735e34ae06b1abce6e948fcd454ae0a3d52cc461bc0
 Description:  Statically-linked full version of standard GNU realpath utility.
 
 Package: coreutils-rm
-Version: 9.2
+Version: 9.4
+Depends: coreutils
+License: GPL-3.0-or-later
+Section: utils
+Architecture: arm_cortex-a9
+Installed-Size: 55380
+Filename: coreutils-rm_9.4_arm_cortex-a9.ipk
+Size: 55678
+SHA256sum: af3cbc86f7eac502890419c61df358a1628eb020731ea0e0f419f00f82e17833
+Description:  Statically-linked full version of standard GNU rm utility.
+
+Package: coreutils-rmdir
+Version: 9.4
+Depends: coreutils
+License: GPL-3.0-or-later
+Section: utils
+Architecture: arm_cortex-a9
+Installed-Size: 41880
+Filename: coreutils-rmdir_9.4_arm_cortex-a9.ipk
+Size: 42201
+SHA256sum: ebaf68f12b9bb95df0256527a81c5ac4ec515e7bbcb06a0945d12495c679cb76
+Description:  Statically-linked full version of standard GNU rmdir utility.
+
+Package: coreutils-runcon
+Version: 9.4
+Depends: coreutils
+License: GPL-3.0-or-later
+Section: utils
+Architecture: arm_cortex-a9
+Installed-Size: 41080
+Filename: coreutils-runcon_9.4_arm_cortex-a9.ipk
+Size: 41406
+SHA256sum: 649aca44fead0801c1606bf6b0694dd02e760f8888e3af3d8fae86e8114e532d
+Description:  Statically-linked full version of standard GNU runcon utility.
+
+Package: coreutils-seq
+Version: 9.4
+Depends: coreutils
+License: GPL-3.0-or-later
+Section: utils
+Architecture: arm_cortex-a9
+Installed-Size: 50244
+Filename: coreutils-seq_9.4_arm_cortex-a9.ipk
+Size: 50540
+SHA256sum: 487e60a14384b34fcb2743c1fbbcb8d0ffb051647ce9fdf9b5cf74a536000343
+Description:  Statically-linked full version of standard GNU seq utility.
+
+Package: coreutils-sha1sum
+Version: 9.4
+Depends: coreutils
+License: GPL-3.0-or-later
+Section: utils
+Architecture: arm_cortex-a9
+Installed-Size: 48896
+Filename: coreutils-sha1sum_9.4_arm_cortex-a9.ipk
+Size: 49192
+SHA256sum: 089cf1846e7530333b88258c091a8c05ab089449b2e17d5ed30ae8e3f1fb863b
+Description:  Statically-linked full version of standard GNU sha1sum utility.
+
+Package: coreutils-sha224sum
+Version: 9.4
+Depends: coreutils
+License: GPL-3.0-or-later
+Section: utils
+Architecture: arm_cortex-a9
+Installed-Size: 50352
+Filename: coreutils-sha224sum_9.4_arm_cortex-a9.ipk
+Size: 50664
+SHA256sum: b9ce97d541d861c88e837bf819a82aa69c53ff08d798821d686494554dc59b60
+Description:  Statically-linked full version of standard GNU sha224sum utility.
+
+Package: coreutils-sha256sum
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
 Installed-Size: 50300
-Filename: coreutils-rm_9.2_arm_cortex-a9.ipk
-Size: 50599
-SHA256sum: f72ec6ac94342e62cb4c45779a049f611ea21aae41fad0560b5d9ce3d0f67c62
-Description:  Statically-linked full version of standard GNU rm utility.
-
-Package: coreutils-rmdir
-Version: 9.2
-Depends: coreutils
-License: GPL-3.0-or-later
-Section: utils
-Architecture: arm_cortex-a9
-Installed-Size: 36880
-Filename: coreutils-rmdir_9.2_arm_cortex-a9.ipk
-Size: 37199
-SHA256sum: 6b7fe15585ff9ca4ead856ac03184ed1e14c06a8d8ba2a55adf39414651ed400
-Description:  Statically-linked full version of standard GNU rmdir utility.
-
-Package: coreutils-runcon
-Version: 9.2
-Depends: coreutils
-License: GPL-3.0-or-later
-Section: utils
-Architecture: arm_cortex-a9
-Installed-Size: 35360
-Filename: coreutils-runcon_9.2_arm_cortex-a9.ipk
-Size: 35680
-SHA256sum: 9d72c7d3b9a5c2e34ca3ce4fa6d78dfd489f91dd3a855953d4fd5d8ce29b89ef
-Description:  Statically-linked full version of standard GNU runcon utility.
-
-Package: coreutils-seq
-Version: 9.2
-Depends: coreutils
-License: GPL-3.0-or-later
-Section: utils
-Architecture: arm_cortex-a9
-Installed-Size: 44648
-Filename: coreutils-seq_9.2_arm_cortex-a9.ipk
-Size: 44901
-SHA256sum: 887bdff29d8d922869d71dd622d9f3259f81a658f13c865f1224cf9fddb2c1a5
-Description:  Statically-linked full version of standard GNU seq utility.
-
-Package: coreutils-sha1sum
-Version: 9.2
-Depends: coreutils
-License: GPL-3.0-or-later
-Section: utils
-Architecture: arm_cortex-a9
-Installed-Size: 43092
-Filename: coreutils-sha1sum_9.2_arm_cortex-a9.ipk
-Size: 43435
-SHA256sum: b2577f6744678138dbd5c8af67d5978d91248b42b44ce155e859fd1d92aa350a
-Description:  Statically-linked full version of standard GNU sha1sum utility.
-
-Package: coreutils-sha224sum
-Version: 9.2
-Depends: coreutils
-License: GPL-3.0-or-later
-Section: utils
-Architecture: arm_cortex-a9
-Installed-Size: 44572
-Filename: coreutils-sha224sum_9.2_arm_cortex-a9.ipk
-Size: 44803
-SHA256sum: b0aab1cc5508ca7ebe64da4cdafe55294b0f0c041536fd3a5c48fdcbc6e8b785
-Description:  Statically-linked full version of standard GNU sha224sum utility.
-
-Package: coreutils-sha256sum
-Version: 9.2
-Depends: coreutils
-License: GPL-3.0-or-later
-Section: utils
-Architecture: arm_cortex-a9
-Installed-Size: 44520
-Filename: coreutils-sha256sum_9.2_arm_cortex-a9.ipk
-Size: 44768
-SHA256sum: b30adafa9d219809a79a31f44bfde137206a2a6ca05ec458383cff3bbf3cc1a0
+Filename: coreutils-sha256sum_9.4_arm_cortex-a9.ipk
+Size: 50605
+SHA256sum: 1c3e46db5dbb31ad8c7d5dd9a1e51f4b1c35cf53a868503a2044e994c9d6163a
 Description:  Statically-linked full version of standard GNU sha256sum utility.
 
 Package: coreutils-sha384sum
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 58796
-Filename: coreutils-sha384sum_9.2_arm_cortex-a9.ipk
-Size: 59138
-SHA256sum: df11a0025a8e0ead463cd2c4072352a46aafc7e9024afa1ec77a0512a809ab0d
+Installed-Size: 64616
+Filename: coreutils-sha384sum_9.4_arm_cortex-a9.ipk
+Size: 64952
+SHA256sum: 3b9f2a18889c3a30ee961534712829b790ccd0c1edf3ffef686af138972b7abf
 Description:  Statically-linked full version of standard GNU sha384sum utility.
 
 Package: coreutils-sha512sum
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 58780
-Filename: coreutils-sha512sum_9.2_arm_cortex-a9.ipk
-Size: 59122
-SHA256sum: c2f4c9a245330222094a4af6c46b08ab29a4adf268c822a7caa1874400457bd9
+Installed-Size: 64608
+Filename: coreutils-sha512sum_9.4_arm_cortex-a9.ipk
+Size: 64946
+SHA256sum: 278737984ec1c43b7d99255207ad48b748be4831e60bf34be82471b959069099
 Description:  Statically-linked full version of standard GNU sha512sum utility.
 
 Package: coreutils-shred
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 48808
-Filename: coreutils-shred_9.2_arm_cortex-a9.ipk
-Size: 49101
-SHA256sum: 4f78e2aedb777acf6793f5f7bc714213a9c488c9b9aac7cc020285dc5b97e103
+Installed-Size: 54224
+Filename: coreutils-shred_9.4_arm_cortex-a9.ipk
+Size: 54510
+SHA256sum: 364c97b8623ea0b471fc363c4a12b97db248a2422e2b57ea3fdcc1aff476d0fa
 Description:  Statically-linked full version of standard GNU shred utility.
 
 Package: coreutils-shuf
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 46356
-Filename: coreutils-shuf_9.2_arm_cortex-a9.ipk
-Size: 46604
-SHA256sum: bef5cfcec8ace4bd5c3604c80ac991a7b5e45de96a15964ccc6ca6bf36fb303f
+Installed-Size: 51468
+Filename: coreutils-shuf_9.4_arm_cortex-a9.ipk
+Size: 51763
+SHA256sum: 83c919d0b3dbf470d6aa6a3479cb6b393c3401a741941acceac7e39b75a3a847
 Description:  Statically-linked full version of standard GNU shuf utility.
 
 Package: coreutils-sleep
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 41076
-Filename: coreutils-sleep_9.2_arm_cortex-a9.ipk
-Size: 41396
-SHA256sum: 0e4d04de566e64ce9a20ddd75a1724042219a55624c51d51152a06164a463e08
+Installed-Size: 46844
+Filename: coreutils-sleep_9.4_arm_cortex-a9.ipk
+Size: 47090
+SHA256sum: 3f315b4dd7e3704bc539fca38813435993b6def8b21fa4dabef3f7a05b351efb
 Description:  Statically-linked full version of standard GNU sleep utility.
 
 Package: coreutils-sort
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 79264
-Filename: coreutils-sort_9.2_arm_cortex-a9.ipk
-Size: 79647
-SHA256sum: 5009517c1710bf7da432f1381bb992ed244696766f3ecb3594a696c8daee464b
+Installed-Size: 84944
+Filename: coreutils-sort_9.4_arm_cortex-a9.ipk
+Size: 85225
+SHA256sum: 8c32bb52ed276ed190dd0f17cdffb0bd06e0c90ba672f538a3a7ac8da9a289ca
 Description:  Statically-linked full version of standard GNU sort utility.
 
 Package: coreutils-split
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 51748
-Filename: coreutils-split_9.2_arm_cortex-a9.ipk
-Size: 52064
-SHA256sum: cf0e702d1e5ed47b2fcb3e83ad95fc90d8530441744d18cd495a18d968e109dc
+Installed-Size: 58180
+Filename: coreutils-split_9.4_arm_cortex-a9.ipk
+Size: 58513
+SHA256sum: c768bccbf433bb08468917921354c990bba9c51f3db868d36de0fa52af9bd1ab
 Description:  Statically-linked full version of standard GNU split utility.
 
 Package: coreutils-stat
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 71844
-Filename: coreutils-stat_9.2_arm_cortex-a9.ipk
-Size: 72236
-SHA256sum: e5394ef5b62dcf6ec8dd789bb19996142d0d100b3737f1aa3efbe893599283b7
+Installed-Size: 76688
+Filename: coreutils-stat_9.4_arm_cortex-a9.ipk
+Size: 77050
+SHA256sum: 5a2bf34e2b9eb0a1290dfec4a9a3e3c9e300a79b8dcbfd0031c91ebcbccf2753
 Description:  Statically-linked full version of standard GNU stat utility.
 
 Package: coreutils-stdbuf
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 40980
-Filename: coreutils-stdbuf_9.2_arm_cortex-a9.ipk
-Size: 41310
-SHA256sum: 0feee4ccccfa890efc6524df121ec98231245c3979c37e1f4045622bb9f5ecba
+Installed-Size: 45840
+Filename: coreutils-stdbuf_9.4_arm_cortex-a9.ipk
+Size: 46074
+SHA256sum: f165f2220ac1af304bf5282d2ebd658eba2daa916ae619313a6f3841c76a6c00
 Description:  Statically-linked full version of standard GNU stdbuf utility.
 
 Package: coreutils-stty
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 46856
-Filename: coreutils-stty_9.2_arm_cortex-a9.ipk
-Size: 47098
-SHA256sum: c467f8b2bfa02b7de7ed87c9f9382576e4d496f8b9b9cdd3a2b8be4e5273adeb
+Installed-Size: 52272
+Filename: coreutils-stty_9.4_arm_cortex-a9.ipk
+Size: 52571
+SHA256sum: 67e3171b7935b42ee0977785328cae6768606795c1baa2bae3a0156b2b15826e
 Description:  Statically-linked full version of standard GNU stty utility.
 
 Package: coreutils-sum
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 39204
-Filename: coreutils-sum_9.2_arm_cortex-a9.ipk
-Size: 39532
-SHA256sum: ccef215c2875e5536bd210462d105661c92c584670ccb424793ce1cb674737ca
+Installed-Size: 44660
+Filename: coreutils-sum_9.4_arm_cortex-a9.ipk
+Size: 44893
+SHA256sum: 3c9392a8956d913d19caaf59794dca859add340d332baed8f3015eeb35e15d60
 Description:  Statically-linked full version of standard GNU sum utility.
 
 Package: coreutils-sync
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 35656
-Filename: coreutils-sync_9.2_arm_cortex-a9.ipk
-Size: 35961
-SHA256sum: 522aa2918c59fb4447fba3b7038f0e9e97ca35939b1cc924e0da5b0c09c61165
+Installed-Size: 41380
+Filename: coreutils-sync_9.4_arm_cortex-a9.ipk
+Size: 41710
+SHA256sum: b75fbb4c5dc32d8c92626316146a3864a7a1f1032aae7763d5164b3a778123ab
 Description:  Statically-linked full version of standard GNU sync utility.
 
 Package: coreutils-tac
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 66772
-Filename: coreutils-tac_9.2_arm_cortex-a9.ipk
-Size: 67081
-SHA256sum: d3c6bd2dbeeca2983295b8b9578296730203b5e27d755e6ed4923731d0640284
+Installed-Size: 72984
+Filename: coreutils-tac_9.4_arm_cortex-a9.ipk
+Size: 73367
+SHA256sum: e7cb8b59facc0614d0b31ea20c79fc76d0b84ea97c4dc6b3ae70c5c683003980
 Description:  Statically-linked full version of standard GNU tac utility.
 
 Package: coreutils-tail
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 55940
-Filename: coreutils-tail_9.2_arm_cortex-a9.ipk
-Size: 56240
-SHA256sum: b7c0093eb6982747e0725ae8ede7c576d9c43e7ce9b42dafcc6dcd1f238e5c86
+Installed-Size: 61396
+Filename: coreutils-tail_9.4_arm_cortex-a9.ipk
+Size: 61747
+SHA256sum: f339726963b265f5f877f09c8851cceabb8f00fbed108f8d1d1d9c10805b1508
 Description:  Statically-linked full version of standard GNU tail utility.
 
 Package: coreutils-tee
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 39628
-Filename: coreutils-tee_9.2_arm_cortex-a9.ipk
-Size: 39964
-SHA256sum: 15bc1813ce92b1e02683daa716eaad54c0efa036f488d3527ca399656379e773
+Installed-Size: 44684
+Filename: coreutils-tee_9.4_arm_cortex-a9.ipk
+Size: 44954
+SHA256sum: 571d2681a957b577172704efe5700cc2a977c24cf3ef418a854e909077cd3bb5
 Description:  Statically-linked full version of standard GNU tee utility.
 
 Package: coreutils-test
-Version: 9.2
+Version: 9.4
+Depends: coreutils
+License: GPL-3.0-or-later
+Section: utils
+Architecture: arm_cortex-a9
+Installed-Size: 43344
+Filename: coreutils-test_9.4_arm_cortex-a9.ipk
+Size: 43662
+SHA256sum: cf5a7190760296112d59f533a7f9d14ce0d701ebe20e336cd0773f8356c674b8
+Description:  Statically-linked full version of standard GNU test utility.
+
+Package: coreutils-timeout
+Version: 9.4
+Depends: coreutils
+License: GPL-3.0-or-later
+Section: utils
+Architecture: arm_cortex-a9
+Installed-Size: 56992
+Filename: coreutils-timeout_9.4_arm_cortex-a9.ipk
+Size: 57263
+SHA256sum: e0429c45d61e85a4ba94107c78c02c6d1404745d43ea84fadf8e4e65dee56967
+Description:  Statically-linked full version of standard GNU timeout utility.
+
+Package: coreutils-touch
+Version: 9.4
+Depends: coreutils
+License: GPL-3.0-or-later
+Section: utils
+Architecture: arm_cortex-a9
+Installed-Size: 65384
+Filename: coreutils-touch_9.4_arm_cortex-a9.ipk
+Size: 65714
+SHA256sum: 8b7fb25a5148a6c288db0ea8f52f2b3724f902dd60fd887685ae04df52c6f50a
+Description:  Statically-linked full version of standard GNU touch utility.
+
+Package: coreutils-tr
+Version: 9.4
+Depends: coreutils
+License: GPL-3.0-or-later
+Section: utils
+Architecture: arm_cortex-a9
+Installed-Size: 48784
+Filename: coreutils-tr_9.4_arm_cortex-a9.ipk
+Size: 49081
+SHA256sum: 89e2e644f526e5dc5bfc2513091fc5c3f449101712453d543c7d5719d08962ac
+Description:  Statically-linked full version of standard GNU tr utility.
+
+Package: coreutils-true
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
 Installed-Size: 38452
-Filename: coreutils-test_9.2_arm_cortex-a9.ipk
-Size: 38787
-SHA256sum: bdbc807da8e0990f36b0a98cbc30b8af14c9fbea7baa7f298bd53ee773c93970
-Description:  Statically-linked full version of standard GNU test utility.
-
-Package: coreutils-timeout
-Version: 9.2
-Depends: coreutils
-License: GPL-3.0-or-later
-Section: utils
-Architecture: arm_cortex-a9
-Installed-Size: 50824
-Filename: coreutils-timeout_9.2_arm_cortex-a9.ipk
-Size: 51135
-SHA256sum: 617d8de26b8670092b5914b98a245318228f8163943d1de9970b9960b7258aea
-Description:  Statically-linked full version of standard GNU timeout utility.
-
-Package: coreutils-touch
-Version: 9.2
-Depends: coreutils
-License: GPL-3.0-or-later
-Section: utils
-Architecture: arm_cortex-a9
-Installed-Size: 60036
-Filename: coreutils-touch_9.2_arm_cortex-a9.ipk
-Size: 60383
-SHA256sum: 3fba585219ec92d9b21302f136943deae17ad953582509c76e8fc673f6422ca7
-Description:  Statically-linked full version of standard GNU touch utility.
-
-Package: coreutils-tr
-Version: 9.2
-Depends: coreutils
-License: GPL-3.0-or-later
-Section: utils
-Architecture: arm_cortex-a9
-Installed-Size: 43340
-Filename: coreutils-tr_9.2_arm_cortex-a9.ipk
-Size: 43681
-SHA256sum: bf864e7311251ad67a0929a9fb3e6fb44442451903767e03b706e37fc708055f
-Description:  Statically-linked full version of standard GNU tr utility.
-
-Package: coreutils-true
-Version: 9.2
-Depends: coreutils
-License: GPL-3.0-or-later
-Section: utils
-Architecture: arm_cortex-a9
-Installed-Size: 32720
-Filename: coreutils-true_9.2_arm_cortex-a9.ipk
-Size: 32944
-SHA256sum: c87135c5513e46d38d710b12913aba37dbbd9c898b93a0d304cbee9049934dee
+Filename: coreutils-true_9.4_arm_cortex-a9.ipk
+Size: 38778
+SHA256sum: 675dd592835ba5feca8538238b9a899baf9cb0c4cdca27325ba0779a1afe28ac
 Description:  Statically-linked full version of standard GNU true utility.
 
 Package: coreutils-truncate
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 39764
-Filename: coreutils-truncate_9.2_arm_cortex-a9.ipk
-Size: 40102
-SHA256sum: d56799669aabb4b8e3679078916011665a633cdf123b2d708693ac0763866857
+Installed-Size: 44812
+Filename: coreutils-truncate_9.4_arm_cortex-a9.ipk
+Size: 45066
+SHA256sum: 54c1507f92ed9d9420b053560079bfe47f7583fe7cb4421db7c8141605b4b8af
 Description:  Statically-linked full version of standard GNU truncate utility.
 
 Package: coreutils-tsort
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 38044
-Filename: coreutils-tsort_9.2_arm_cortex-a9.ipk
-Size: 38381
-SHA256sum: 4d2d229598e4fdbf978c3b8656a1c3d8c4445f2716a22f4e52781e59e0ffb7bf
+Installed-Size: 43768
+Filename: coreutils-tsort_9.4_arm_cortex-a9.ipk
+Size: 44085
+SHA256sum: 08e15d9de28718eea6116478b1e18375a0bb0e260fd96f1437732405ade101b7
 Description:  Statically-linked full version of standard GNU tsort utility.
 
 Package: coreutils-tty
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 35964
-Filename: coreutils-tty_9.2_arm_cortex-a9.ipk
-Size: 36263
-SHA256sum: a4f202992dcedfb9b8ff8ca6ba4b55bf61e92bc79ad3bb072d287dba4073f4e9
+Installed-Size: 41016
+Filename: coreutils-tty_9.4_arm_cortex-a9.ipk
+Size: 41334
+SHA256sum: aa2ca51818d486954c87a2c0ae0a1f1950a85da1dc2ac31e4370abb225b18ec9
 Description:  Statically-linked full version of standard GNU tty utility.
 
 Package: coreutils-uname
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 35572
-Filename: coreutils-uname_9.2_arm_cortex-a9.ipk
-Size: 35889
-SHA256sum: 6e76d50815bd224cdf6df2c49e80e01dc36ab36df43cb2e9cb9d24f2a38949af
+Installed-Size: 41324
+Filename: coreutils-uname_9.4_arm_cortex-a9.ipk
+Size: 41652
+SHA256sum: aecdc4de211990458da899878938df60610ba90720e052b98655af54648193cf
 Description:  Statically-linked full version of standard GNU uname utility.
 
 Package: coreutils-unexpand
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 38708
-Filename: coreutils-unexpand_9.2_arm_cortex-a9.ipk
-Size: 39057
-SHA256sum: da6f574c0f72276d786d7d9359f80ca392d0e4f4e27d5968c487766d58ed5368
+Installed-Size: 44304
+Filename: coreutils-unexpand_9.4_arm_cortex-a9.ipk
+Size: 44586
+SHA256sum: e83f87927115df941f44840fe1ad9e40c89a67555baaf26a7732910c6b48b8bd
 Description:  Statically-linked full version of standard GNU unexpand utility.
 
 Package: coreutils-uniq
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 41568
-Filename: coreutils-uniq_9.2_arm_cortex-a9.ipk
-Size: 41905
-SHA256sum: 57d2caef51173be99a783d6b42dc75cd5f16a1f9b1127c3146ab21b3cca488b9
+Installed-Size: 47444
+Filename: coreutils-uniq_9.4_arm_cortex-a9.ipk
+Size: 47684
+SHA256sum: 8690a80f6cf42ef7aedf8813782c93f83b02cc4d90000ee62806014426fd3240
 Description:  Statically-linked full version of standard GNU uniq utility.
 
 Package: coreutils-unlink
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 35016
-Filename: coreutils-unlink_9.2_arm_cortex-a9.ipk
-Size: 35316
-SHA256sum: 7f6c15183e659287ce61e985e8561087cb707650cf27662ad22549854a1d4d46
+Installed-Size: 40764
+Filename: coreutils-unlink_9.4_arm_cortex-a9.ipk
+Size: 41092
+SHA256sum: 22186868ed05ab1e082437b41bbaa2b392c726fa23c712bf9a3403cc68b819fa
 Description:  Statically-linked full version of standard GNU unlink utility.
 
 Package: coreutils-uptime
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 51880
-Filename: coreutils-uptime_9.2_arm_cortex-a9.ipk
-Size: 52177
-SHA256sum: 1c8a2997b1555695dd43cac89e80041c5f85594ecb7b361480fc466757fb6433
+Installed-Size: 54460
+Filename: coreutils-uptime_9.4_arm_cortex-a9.ipk
+Size: 54743
+SHA256sum: 5dfb40034cea9c254e44d725bff1058c6ecec95723cb43168976bcb94c916221
 Description:  Statically-linked full version of standard GNU uptime utility.
 
 Package: coreutils-users
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 36684
-Filename: coreutils-users_9.2_arm_cortex-a9.ipk
-Size: 36995
-SHA256sum: e54ab2adf7fb58cf108e95600eb20bf3ea0a7dfb146c8f0c74f8b523254234a6
+Installed-Size: 45196
+Filename: coreutils-users_9.4_arm_cortex-a9.ipk
+Size: 45433
+SHA256sum: bfb41afa44189c29969b95558f500324c1f46dd801494d26b32744b532978d24
 Description:  Statically-linked full version of standard GNU users utility.
 
 Package: coreutils-vdir
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 95164
-Filename: coreutils-vdir_9.2_arm_cortex-a9.ipk
-Size: 95509
-SHA256sum: e0ae987735b300ecae085a347359ef814d2f53f7d4aa7da3d6492ad0641a56a3
+Installed-Size: 100896
+Filename: coreutils-vdir_9.4_arm_cortex-a9.ipk
+Size: 101314
+SHA256sum: 9fb580f4d5bc1582f600b0563f47989a924f5383e1701407527e689949b0becf
 Description:  Statically-linked full version of standard GNU vdir utility.
 
 Package: coreutils-wc
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 45088
-Filename: coreutils-wc_9.2_arm_cortex-a9.ipk
-Size: 45340
-SHA256sum: 08c387460761b3dfa939cc705f77cef8528f1daa8971a0006f9b9f62cb4d23b9
+Installed-Size: 50220
+Filename: coreutils-wc_9.4_arm_cortex-a9.ipk
+Size: 50515
+SHA256sum: 5361cb0fc5f22c7a145d647d13c155d7eeeca2a24545404dd31a304e76046929
 Description:  Statically-linked full version of standard GNU wc utility.
 
 Package: coreutils-who
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 57864
-Filename: coreutils-who_9.2_arm_cortex-a9.ipk
-Size: 58150
-SHA256sum: c91be08e3f0bf567bfc6aaf2ce567b11208832713a840d5a1831f303bb4575e8
+Installed-Size: 66084
+Filename: coreutils-who_9.4_arm_cortex-a9.ipk
+Size: 66380
+SHA256sum: 502445df4e4af13d8bdccc2dd6e602330add81de356ccddf1f16e51a7d143bf6
 Description:  Statically-linked full version of standard GNU who utility.
 
 Package: coreutils-whoami
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 37460
-Filename: coreutils-whoami_9.2_arm_cortex-a9.ipk
-Size: 37752
-SHA256sum: b85caa57cd5c379b3318db1483a6dc7ee4dcaa9dc8238de6ca509c9bebfcf237
+Installed-Size: 43160
+Filename: coreutils-whoami_9.4_arm_cortex-a9.ipk
+Size: 43491
+SHA256sum: a9b18f5b59b98b27644c247c408e5e8e9c5e6c45adec248d5bb510c38734c962
 Description:  Statically-linked full version of standard GNU whoami utility.
 
 Package: coreutils-yes
-Version: 9.2
+Version: 9.4
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
-Installed-Size: 35124
-Filename: coreutils-yes_9.2_arm_cortex-a9.ipk
-Size: 35433
-SHA256sum: 222e9644e727418ccfc9091110a02c7d5bc38e902b08ef31f0813c7d9e59f0d0
+Installed-Size: 40848
+Filename: coreutils-yes_9.4_arm_cortex-a9.ipk
+Size: 41179
+SHA256sum: 18fb57366834c1823c68a08c101e0d3b949372d1fa630302ec1544141c90b47c
 Description:  Statically-linked full version of standard GNU yes utility.
 
 Package: coreutils
-Version: 9.2
+Version: 9.4
 License: GPL-3.0-or-later
 Section: utils
 Architecture: arm_cortex-a9
 Installed-Size: 0
-Filename: coreutils_9.2_arm_cortex-a9.ipk
+Filename: coreutils_9.4_arm_cortex-a9.ipk
 Size: 858
-SHA256sum: def3a72de5d007cb2fca7fed8b7c3f40b16c876b465b77bfda9c1fb12c3afcfe
+SHA256sum: dbaeccdeffed7dcc2e78505e700a1ac6849a8ea00a275394d00641ec032105a5
 Description:  Statically-linked full versions of standard GNU utilities. If an equivalent 
  Busybox applet is available, you should consider using that instead as Busybox applets are
  usually smaller, at the expense of reduced functionality.

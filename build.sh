@@ -5,8 +5,8 @@
 #
 # For Linux, also builds musl for truly static linking.
 
-coreutils_version="9.2"
-musl_version="1.2.3"
+coreutils_version="9.4"
+musl_version="1.2.4"
 
 platform=$(uname -s)
 
