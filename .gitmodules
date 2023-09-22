@@ -1,0 +1,6 @@
+[submodule "musl-cross-make"]
+	path = musl-cross-make
+	url = https://github.com/richfelker/musl-cross-make.git
+[submodule "usign"]
+	path = usign
+	url = https://github.com/openwrt/usign.git
