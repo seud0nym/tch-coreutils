@@ -1,2 +1,4 @@
-build
-tmp
+.work
+bin/usign
+seud0nym-private.key
+toolchains

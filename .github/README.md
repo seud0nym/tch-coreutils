@@ -2,9 +2,14 @@
 
 Statically linked arm binaries of the GNU coreutils, specifically for deployment on Technicolor Gateway routers.
 
-## Configuring opkg
+### /etc/opkg.conf
 
-The `/etc/opkg.conf` file must contain the architecture for your device. e.g. for a 32 bit Technicolor device, it will look something like this:
+The `/etc/opkg.conf` file must contain the architecture for your device.
+
+#### 32 bit ARM Cortex-A9 Devices
+
+Example for a 32 bit Technicolor device such as the Telstra Smart Modem Gen 2 and earlier generation devices:
+
 ```
 dest root /
 dest ram /tmp
@@ -19,23 +24,55 @@ arch bcm53xx 40
 ```
 
 The following line also needs to be added to `/etc/opkg/customfeeds.conf`:
+
 ```
-src/gz coreutils https://raw.githubusercontent.com/seud0nym/tch-coreutils/master/repository/arm_cortex-a9/packages
+src/gz tch_static https://raw.githubusercontent.com/seud0nym/tch-coreutils/master/repository/arm_cortex-a9/packages
 ```
 
-64-bit devices (such as the Telstra Smart Modem Gen 3), would use `arm_cortex_a53` instead of `arm_cortex-a9`.
+#### 64-bit device ARM Cortex-A53 Devices
+
+Example for a 64 bit Technicolor device such as the Telstra Smart Modem Gen 3:
+
+```
+dest root /
+dest ram /tmp
+lists_dir ext /var/opkg-lists
+option overlay_root /overlay
+option check_signature
+dest lcm_native /opt/
+arch all 1
+arch noarch 1
+arch arm_cortex-a53 10
+arch aarch64_cortex-a53 20
+```
+
+The following line also needs to be added to `/etc/opkg/customfeeds.conf`:
+```
+src/gz tch_static https://raw.githubusercontent.com/seud0nym/tch-coreutils/master/repository/arm_cortex-a53/packages
+```
+
+### Package Signature Verification
+
+Later versions of `opkg` require the Package index file to signed. If you get a "_Signature check failed_" error when executing `opkg update`, download and add the key file:
+
+```bash
+curl -sklO https://raw.githubusercontent.com/seud0nym/tch-coreutils/master/keys/seud0nym-public.key
+opkg-key add seud0nym-public.key
+rm seud0nym-public.key
+```
 
 ## Building
 
-### Release Binaries
+The release binaries were built using the `build.sh` script. The individual OpenWrt opkg .ipk files are built using an adapted version of the `make-ipk.sh` script from https://bitsum.com/creating_ipk_packages.htm, which is executed automatically by `build.sh`.
 
-The release binaries were built using the `build-binaries.sh` script (derived from https://github.com/luciusmagn/coreutils-static/blob/master/build.sh) on Debian v11.6 (bullseye) running on a Marvell Feroceon 88FR131 (armv5tel) processor system with the following packages installed:
-```
-apt install make gcc upx curl
-```
+### Prerequisites
 
-### OpenWrt Packages
+The following packages are required to be installed before running `build.sh`:
+* git
+* make
+* gcc
+* curl
+* autoconf
+* cmake
 
-The individual OpenWrt opkg .ipk files are built using an adapted version of the `make-ipk.sh` from https://bitsum.com/creating_ipk_packages.htm.
-
-The `build-packages.sh` script will create two .ipk files in the repository (one each for the arm_cortex-a9 and arm_cortex-a53 architectures) for each executable found in the `releases` directory. It will also create the base coreutils package, which is added as a dependency to all the individual packages, to mimic the official OpenWrt packages.
+The usign private key `seud0nym-private.key` is also required to sign the Packages file.
