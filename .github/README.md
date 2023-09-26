@@ -31,8 +31,6 @@ src/gz tch_static https://raw.githubusercontent.com/seud0nym/tch-coreutils/maste
 
 #### 64-bit device ARM Cortex-A53 Devices
 
-**WARNING:** These are not aarch64 binaries, because the 64-bit binaries currently core-dump when run on an ARM Cortex-A53 Technicolor device! However, the 32-bit binaries do run appear to run successfully.
-
 Example for a 64 bit Technicolor device such as the Telstra Smart Modem Gen 3:
 
 ```
@@ -70,11 +68,11 @@ The release binaries were built using the `build.sh` script. The individual Open
 ### Prerequisites
 
 The following packages are required to be installed before running `build.sh`:
-* git
-* make
-* gcc
-* curl
+* autotools-dev
+* autoconf
 * cmake
-* upx-ucl
+* automake
+* build-essential
+* git
 
 The usign private key `seud0nym-private.key` is also required to sign the Packages file.
