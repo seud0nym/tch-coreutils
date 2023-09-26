@@ -1,4 +1,5 @@
 .work
+bin/upx
 bin/usign
 seud0nym-private.key
 toolchains

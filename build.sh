@@ -9,22 +9,13 @@ NC='\033[0m' # No Color
 __PKG_ONLY=N
 __THIS_ARCH=$(uname -m)
 
-# aarch64 musl builds are commented out because currently they core dump when run on Technicolor ARM Cortex-A53 devices
-# 32-bit arm builds seem to run fine on Technicolor ARM Cortex-A53 devices
-
-if [ $__THIS_ARCH == x86_64 ]; then
-  #__MUSL_ARCH=(arm aarch64)
-  #__MUSL_PRFX=(${__MUSL_ARCH[0]}-linux-musleabi ${__MUSL_ARCH[1]}-linux-musl)
-  __MUSL_ARCH=(arm arm)
-  __MUSL_PRFX=(${__MUSL_ARCH[0]}-linux-musleabi ${__MUSL_ARCH[1]}-linux-musleabi)
+if [ $__THIS_ARCH == x86_64 -o $__THIS_ARCH == aarch64 ]; then
+  __MUSL_ARCH=(arm aarch64)
+  __MUSL_PRFX=(${__MUSL_ARCH[0]}-linux-musleabi ${__MUSL_ARCH[1]}-linux-musl)
   __OWRT_ARCH=(arm_cortex-a9 arm_cortex-a53)
-#elif [ $__THIS_ARCH == aarch64 ]; then
-#  #__MUSL_ARCH=(aarch64)
-#  __MUSL_ARCH=(arm)
-#  __OWRT_ARCH=(arm_cortex-a53)
-#elif [[ $__THIS_ARCH =~ ^armv[567] ]]; then
-#  __MUSL_ARCH=(arm)
-#  __OWRT_ARCH=(arm_cortex-a9)
+elif [[ $__THIS_ARCH =~ ^armv[567] ]]; then
+  __MUSL_ARCH=(arm)
+  __OWRT_ARCH=(arm_cortex-a9)
 else
   echo -e "${RED}$(date +%X) ==> ERROR: Unsupported build machine: ${__THIS_ARCH}!${NC}"
   exit 2
@@ -32,15 +23,11 @@ fi
 
 echo -e "${GREEN}$(date +%X) ==> INFO:  Checking for required keys....${GREY}[$(pwd)]${NC}"
 [ -e keys/seud0nym-private.key ] || { echo -e "${RED}$(date +%X) ==> ERROR: Private key not found!${NC}"; exit 2; }
-echo -e "${GREEN}$(date +%X) ==> INFO:  Checking for required executables....${GREY}[$(pwd)]${NC}"
-for __BINARY in cmake curl git make tar gcc upx; do
-  which $__BINARY >/dev/null || { echo -e "${RED}$(date +%X) ==> ERROR: $__BINARY not found!${NC}"; exit 2; }
-done
 
 if [ "$1" == "clean" ]; then
   shift
   echo -e "${GREEN}$(date +%X) ==> INFO:  Cleaning...${GREY}[$(pwd)]${NC}"
-  rm -rf .work bin/usign releases repository toolchains
+  rm -rf .work bin/usign bin/upx releases repository toolchains
 elif [ "$1" == "pkgonly" ]; then
   shift
   __PKG_ONLY=Y
@@ -66,13 +53,34 @@ if [ $__THIS_ARCH == x86_64 ]; then
       popd #musl-cross-make
       echo -e "${GREEN}$(date +%X) ==> INFO:  Building $__TARGET toolchain...${GREY}[$(pwd)]${NC}"
       echo "TARGET = $__TARGET" > musl-cross-make/config.mak
-      make -C musl-cross-make clean
-      make -C musl-cross-make -j $(nproc)
+      make -C musl-cross-make clean --silent
+      make -C musl-cross-make -j $(nproc) --silent || exit 2
       echo -e "${GREEN}$(date +%X) ==> INFO:  Installing $__TARGET toolchain...${GREY}[$(pwd)]${NC}"
-      make -C musl-cross-make OUTPUT="/" DESTDIR="$(pwd)/toolchains" install
+      make -C musl-cross-make OUTPUT="/" DESTDIR="$(pwd)/toolchains" install --silent
     fi
     unset __TARGET
   done
+fi
+
+echo -e "${GREEN}$(date +%X) ==> INFO:  Getting latest upx version....${GREY}[$(pwd)]${NC}"
+__UPX_URL=$(curl -Ls -o /dev/null -w %{url_effective} https://github.com/upx/upx/releases/latest)
+__UPX_VER=$(basename $__UPX_URL | sed -e 's/^v//')
+if [ ! -x bin/upx -o "$(bin/upx -V 2>/dev/null | grep ^upx | grep -o '[0-9.]*')" != "$__UPX_VER" ]; then
+  if [ $__THIS_ARCH == x86_64 ]; then
+    __UPX_DIR="upx-${__UPX_VER}-amd64_linux"
+  elif [ $__THIS_ARCH == aarch64 ]; then
+    __UPX_DIR="upx-${__UPX_VER}-arm64_linux"
+  elif [[ $__THIS_ARCH =~ ^armv[567] ]]; then
+    __UPX_DIR="upx-${__UPX_VER}-arm_linux"
+  fi
+  curl -L https://github.com/upx/upx/releases/download/v${__UPX_VER}/${__UPX_DIR}.tar.xz -o /tmp/upx.tar.xz
+  if [ -e /tmp/upx.tar.xz ]; then
+    tar -C bin --strip-components=1 -xJf /tmp/upx.tar.xz ${__UPX_DIR}/upx
+    rm -rf /tmp/upx.tar.xz
+  else
+    echo -e "${RED}$(date +%X) ==> ERROR: Failed to download upx v${__UPX_VER}!${NC}"
+    exit 2
+  fi
 fi
 
 echo -e "${GREEN}$(date +%X) ==> INFO:  Getting latest coreutils version....${GREY}[$(pwd)]${NC}"
@@ -86,12 +94,13 @@ else
   [ ! -d .work ] && mkdir .work
   pushd .work
 
-  rm -rf coreutils-${__CORE_VER}
-  echo -e "${GREEN}$(date +%X) ==> INFO:  Downloading coreutils v${__CORE_VER}...${GREY}[$(pwd)]${NC}"
-  curl -LO http://ftp.gnu.org/gnu/coreutils/coreutils-${__CORE_VER}.tar.xz
-  echo -e "${GREEN}$(date +%X) ==> INFO:  Extracting coreutils v${__CORE_VER}...${GREY}[$(pwd)]${NC}"
-  tar -xJf coreutils-${__CORE_VER}.tar.xz
-  rm -f coreutils-${__CORE_VER}.tar.xz
+  if [ ! -d coreutils-${__CORE_VER} ]; then
+    echo -e "${GREEN}$(date +%X) ==> INFO:  Downloading coreutils v${__CORE_VER}...${GREY}[$(pwd)]${NC}"
+    curl -LO http://ftp.gnu.org/gnu/coreutils/coreutils-${__CORE_VER}.tar.xz
+    echo -e "${GREEN}$(date +%X) ==> INFO:  Extracting coreutils v${__CORE_VER}...${GREY}[$(pwd)]${NC}"
+    tar -xJf coreutils-${__CORE_VER}.tar.xz
+    rm -f coreutils-${__CORE_VER}.tar.xz
+  fi
 
   __PATH=$PATH
   for I in $(seq 0 $((${#__MUSL_ARCH[@]} - 1))); do
@@ -103,24 +112,32 @@ else
     fi
     if [ $__THIS_ARCH == x86_64 ]; then
       export CC="${__MUSL_PRFX[$I]}-gcc"
-	  	export PATH=$__PATH:$(readlink -f $(dirname $(find ../toolchains/ -name "$CC"))/..)/bin
+      export PATH=$(readlink -f $(dirname $(find ../toolchains/ -name "$CC"))/..)/bin:$__PATH
       __STRIP="${__MUSL_PRFX[$I]}-strip"
+    elif [ $__THIS_ARCH == aarch64 ]; then
+      export CC="${__MUSL_PRFX[$I]}-gcc"
+      export PATH=$(readlink -f $(dirname $(find ../toolchains/ -name "$CC"))/..)/bin:$__PATH
+      __STRIP="strip"
     else
       __STRIP="strip"
     fi
     pushd coreutils-${__CORE_VER}
       echo -e "${GREEN}$(date +%X) ==> INFO:  Configuring coreutils v${__CORE_VER} $__ARCH build...${GREY}[$(pwd)]${NC}"
-      env FORCE_UNSAFE_CONFIGURE=1 CFLAGS="-static -Os -ffunction-sections -fdata-sections" LDFLAGS='-Wl,--gc-sections' ./configure --host="$__ARCH"
+      make distclean
+      export FORCE_UNSAFE_CONFIGURE=1
+      export CFLAGS="-static -Os -ffunction-sections -fdata-sections"
+      export LDFLAGS='-Wl,--gc-sections'
+      ./configure --host="${__MUSL_PRFX[$I]}"
       echo -e "${GREEN}$(date +%X) ==> INFO:  Cleaning any previous coreutils v${__CORE_VER} build...${GREY}[$(pwd)]${NC}"
       make clean
       echo -e "${GREEN}$(date +%X) ==> INFO:  Building coreutils v${__CORE_VER} for ${__ARCH}...${GREY}[$(pwd)]${NC}"
-      make --silent
+      make -j $(nproc) --silent || exit 2
     popd # coreutils-${__CORE_VER}
 
     __EXE_FILES=$(find coreutils-${__CORE_VER}/src/ -maxdepth 1 -type f ! -name '*.*' -executable | sort)
     echo -e "${GREEN}$(date +%X) ==> INFO:  Compressing coreutils v${__CORE_VER} $__ARCH executables...${GREY}[$(pwd)]${NC}"
     $__STRIP -s -R .comment -R .gnu.version --strip-unneeded $__EXE_FILES
-    upx --ultra-brute --no-lzma $__EXE_FILES
+    ../bin/upx --ultra-brute $__EXE_FILES
     echo -e "${GREEN}$(date +%X) ==> INFO:  Copying coreutils v${__CORE_VER} executables to releases directory...${GREY}[$(pwd)]${NC}"
     rm -rf ../releases/$__ARCH
     mkdir -p ../releases/$__ARCH
@@ -195,7 +212,7 @@ if [ ! -x bin/usign ]; then
       echo -e "${GREEN}$(date +%X) ==> INFO:  Generating build system for usign...${GREY}[$(pwd)]${NC}"
       cmake ..
       echo -e "${GREEN}$(date +%X) ==> INFO:  Building usign...${GREY}[$(pwd)]${NC}"
-      make --silent
+      make --silent || exit 2
     popd # build
   popd # usign
   cp usign/build/usign bin/usign
