@@ -7,6 +7,7 @@ RED='\033[0;31m'
 NC='\033[0m' # No Color
 
 __PKG_ONLY=N
+__REBUILD=N
 __THIS_ARCH=$(uname -m)
 
 if [ $__THIS_ARCH == x86_64 -o $__THIS_ARCH == aarch64 ]; then
@@ -27,44 +28,77 @@ echo -e "${GREEN}$(date +%X) ==> INFO:  Checking for required keys....${GREY}[$(
 if [ "$1" == "clean" ]; then
   shift
   echo -e "${GREEN}$(date +%X) ==> INFO:  Cleaning...${GREY}[$(pwd)]${NC}"
-  rm -rf .work bin/usign bin/upx releases repository toolchains
+  rm -rf .work releases repository
 elif [ "$1" == "pkgonly" ]; then
   shift
   __PKG_ONLY=Y
+elif [ "$1" == "rebuild" ]; then
+  shift
+  __REBUILD=Y
 fi
+
+case $(nproc) in
+	1|2) __JOBS=1;;
+	3|4) __JOBS=2;;
+	*)	 __JOBS=$(( $(nproc) - 2 ));;
+esac
+echo -e "${GREY}$(date +%X) ==> DEBUG: Maximum make jobs: $__JOBS${NC}"
 
 git submodule init
 git submodule update
 
-if [ $__THIS_ARCH == x86_64 ]; then
-  [ ! -d toolchains ] && mkdir toolchains
-  for I in $(seq 0 $((${#__MUSL_PRFX[@]} - 1))); do
-    [ -n "$1" -a "$1" != "${__MUSL_ARCH[$I]}" ] && continue
-    __TARGET=${__MUSL_PRFX[$I]}
-    if [ -n "$(find toolchains/ -name ${__TARGET}-gcc)" ]; then
-      echo -e "${GREEN}$(date +%X) ==> INFO:  Found $__TARGET toolchain${GREY}[$(pwd)]${NC}"
-    else
-      echo -e "${GREEN}$(date +%X) ==> INFO:  Updating musl-cross-make submodule...${GREY}[$(pwd)]${NC}"
-      pushd musl-cross-make
-        git fetch
-        git gc
-        git reset --hard HEAD
-        git merge origin/master
-      popd #musl-cross-make
-      echo -e "${GREEN}$(date +%X) ==> INFO:  Building $__TARGET toolchain...${GREY}[$(pwd)]${NC}"
-      echo "TARGET = $__TARGET" > musl-cross-make/config.mak
-      make -C musl-cross-make clean --silent
-      make -C musl-cross-make -j $(nproc) --silent || exit 2
-      echo -e "${GREEN}$(date +%X) ==> INFO:  Installing $__TARGET toolchain...${GREY}[$(pwd)]${NC}"
-      make -C musl-cross-make OUTPUT="/" DESTDIR="$(pwd)/toolchains" install --silent
-    fi
-    unset __TARGET
-  done
+[ ! -d toolchains ] && mkdir toolchains
+for I in $(seq 0 $((${#__MUSL_PRFX[@]} - 1))); do
+  [ -n "$1" -a "$1" != "${__MUSL_ARCH[$I]}" ] && continue
+  __TARGET=${__MUSL_PRFX[$I]}
+  if [ -n "$(find toolchains/ -name ${__TARGET}-gcc)" ]; then
+    echo -e "${GREEN}$(date +%X) ==> INFO:  Found $__TARGET toolchain${GREY}[$(pwd)]${NC}"
+  elif [ "$__THIS_ARCH" == "x86_64" -o "$__THIS_ARCH" == "${__MUSL_ARCH[$I]}" ]; then
+    echo -e "${GREEN}$(date +%X) ==> INFO:  Downloading $__TARGET toolchain...${GREY}[$(pwd)]${NC}"
+    [ "$__THIS_ARCH" == "${__MUSL_ARCH[$I]}" ] && __MUSL_TYPE="native" || __MUSL_TYPE="cross"
+    curl -L https://musl.cc/${__TARGET}-${__MUSL_TYPE}.tgz -o /tmp/${__TARGET}-${__MUSL_TYPE}.tgz
+    echo -e "${GREEN}$(date +%X) ==> INFO:  Extracting $__TARGET $__MUSL_TYPE toolchain...${GREY}[$(pwd)]${NC}"
+    tar -xzf /tmp/${__TARGET}-${__MUSL_TYPE}.tgz -C toolchains
+    rm -f /tmp/${__TARGET}-${__MUSL_TYPE}.tgz
+  else
+    echo -e "${GREEN}$(date +%X) ==> INFO:  Updating musl-cross-make submodule...${GREY}[$(pwd)]${NC}"
+    pushd musl-cross-make
+      git fetch
+      git gc
+      git reset --hard HEAD
+      git merge origin/master
+    popd #musl-cross-make
+    echo -e "${GREEN}$(date +%X) ==> INFO:  Building $__TARGET toolchain...${GREY}[$(pwd)]${NC}"
+    echo "TARGET = $__TARGET" > musl-cross-make/config.mak
+    make -C musl-cross-make clean --silent
+    make -C musl-cross-make -j $__JOBS --silent || exit 2
+    echo -e "${GREEN}$(date +%X) ==> INFO:  Installing $__TARGET toolchain...${GREY}[$(pwd)]${NC}"
+    make -C musl-cross-make OUTPUT="/" DESTDIR="$(pwd)/toolchains" install --silent
+  fi
+done
+
+if [ ! -x bin/usign ]; then
+  pushd usign
+    git fetch
+    git gc
+    git reset --hard HEAD
+    git merge origin/master
+    rm -rf build
+    mkdir build
+    pushd build
+      echo -e "${GREEN}$(date +%X) ==> INFO:  Generating build system for usign...${GREY}[$(pwd)]${NC}"
+      cmake ..
+      echo -e "${GREEN}$(date +%X) ==> INFO:  Building usign...${GREY}[$(pwd)]${NC}"
+      make --silent || exit 2
+    popd # build
+  popd # usign
+  cp usign/build/usign bin/usign
 fi
 
-echo -e "${GREEN}$(date +%X) ==> INFO:  Getting latest upx version....${GREY}[$(pwd)]${NC}"
+echo -e "${GREEN}$(date +%X) ==> INFO:  Determining latest upx version....${GREY}[$(pwd)]${NC}"
 __UPX_URL=$(curl -Ls -o /dev/null -w %{url_effective} https://github.com/upx/upx/releases/latest)
 __UPX_VER=$(basename $__UPX_URL | sed -e 's/^v//')
+echo -e "${GREY}$(date +%X) ==> DEBUG: Latest upx version: $__UPX_VER${NC}"
 if [ ! -x bin/upx -o "$(bin/upx -V 2>/dev/null | grep ^upx | grep -o '[0-9.]*')" != "$__UPX_VER" ]; then
   if [ $__THIS_ARCH == x86_64 ]; then
     __UPX_DIR="upx-${__UPX_VER}-amd64_linux"
@@ -83,8 +117,9 @@ if [ ! -x bin/upx -o "$(bin/upx -V 2>/dev/null | grep ^upx | grep -o '[0-9.]*')"
   fi
 fi
 
-echo -e "${GREEN}$(date +%X) ==> INFO:  Getting latest coreutils version....${GREY}[$(pwd)]${NC}"
+echo -e "${GREEN}$(date +%X) ==> INFO:  Determining latest coreutils version....${GREY}[$(pwd)]${NC}"
 __CORE_VER=$(curl -sL http://ftp.gnu.org/gnu/coreutils | grep -o 'coreutils-[0-9.]*[0-9]' | cut -d- -f2 | sort -un | tail -n1)
+echo -e "${GREY}$(date +%X) ==> DEBUG: Latest coreutils version: $__CORE_VER${NC}"
 __BASE_DIR=$(pwd)
 
 if [ $__PKG_ONLY == Y ]; then
@@ -93,59 +128,61 @@ else
   [ ! -d releases ] && mkdir releases
   [ ! -d .work ] && mkdir .work
   pushd .work
-
-  if [ ! -d coreutils-${__CORE_VER} ]; then
-    echo -e "${GREEN}$(date +%X) ==> INFO:  Downloading coreutils v${__CORE_VER}...${GREY}[$(pwd)]${NC}"
-    curl -LO http://ftp.gnu.org/gnu/coreutils/coreutils-${__CORE_VER}.tar.xz
-    echo -e "${GREEN}$(date +%X) ==> INFO:  Extracting coreutils v${__CORE_VER}...${GREY}[$(pwd)]${NC}"
-    tar -xJf coreutils-${__CORE_VER}.tar.xz
-    rm -f coreutils-${__CORE_VER}.tar.xz
-  fi
-
-  __PATH=$PATH
-  for I in $(seq 0 $((${#__MUSL_ARCH[@]} - 1))); do
-    [ -n "$1" -a "$1" != "${__MUSL_ARCH[$I]}" ] && continue
-    __ARCH=${__MUSL_ARCH[$I]}
-    if [ -e ../releases/$__ARCH/VERSION -a "$(cat ../releases/$__ARCH/VERSION 2>/dev/null)" == "${__CORE_VER}" ]; then
-      echo -e "${ORANGE}$(date +%X) ==> WARN:  Skipping coreutils v${__CORE_VER} $__ARCH build - release already exists.${GREY}[$(pwd)]${NC}"
-      continue
+    if [ ! -d coreutils-${__CORE_VER} ]; then
+      echo -e "${GREEN}$(date +%X) ==> INFO:  Downloading coreutils v${__CORE_VER}...${GREY}[$(pwd)]${NC}"
+      curl -LO http://ftp.gnu.org/gnu/coreutils/coreutils-${__CORE_VER}.tar.xz
+      echo -e "${GREEN}$(date +%X) ==> INFO:  Extracting coreutils v${__CORE_VER}...${GREY}[$(pwd)]${NC}"
+      tar -xJf coreutils-${__CORE_VER}.tar.xz
+      rm -f coreutils-${__CORE_VER}.tar.xz
     fi
-    if [ $__THIS_ARCH == x86_64 ]; then
-      export CC="${__MUSL_PRFX[$I]}-gcc"
-      export PATH=$(readlink -f $(dirname $(find ../toolchains/ -name "$CC"))/..)/bin:$__PATH
-      __STRIP="${__MUSL_PRFX[$I]}-strip"
-    elif [ $__THIS_ARCH == aarch64 ]; then
-      export CC="${__MUSL_PRFX[$I]}-gcc"
-      export PATH=$(readlink -f $(dirname $(find ../toolchains/ -name "$CC"))/..)/bin:$__PATH
-      __STRIP="strip"
-    else
-      __STRIP="strip"
-    fi
-    pushd coreutils-${__CORE_VER}
-      echo -e "${GREEN}$(date +%X) ==> INFO:  Configuring coreutils v${__CORE_VER} $__ARCH build...${GREY}[$(pwd)]${NC}"
-      make distclean
-      export FORCE_UNSAFE_CONFIGURE=1
-      export CFLAGS="-static -Os -ffunction-sections -fdata-sections"
-      export LDFLAGS='-Wl,--gc-sections'
-      ./configure --host="${__MUSL_PRFX[$I]}"
-      echo -e "${GREEN}$(date +%X) ==> INFO:  Cleaning any previous coreutils v${__CORE_VER} build...${GREY}[$(pwd)]${NC}"
-      make clean
-      echo -e "${GREEN}$(date +%X) ==> INFO:  Building coreutils v${__CORE_VER} for ${__ARCH}...${GREY}[$(pwd)]${NC}"
-      make -j $(nproc) --silent || exit 2
-    popd # coreutils-${__CORE_VER}
 
-    __EXE_FILES=$(find coreutils-${__CORE_VER}/src/ -maxdepth 1 -type f ! -name '*.*' -executable | sort)
-    echo -e "${GREEN}$(date +%X) ==> INFO:  Compressing coreutils v${__CORE_VER} $__ARCH executables...${GREY}[$(pwd)]${NC}"
-    $__STRIP -s -R .comment -R .gnu.version --strip-unneeded $__EXE_FILES
-    ../bin/upx --ultra-brute $__EXE_FILES
-    echo -e "${GREEN}$(date +%X) ==> INFO:  Copying coreutils v${__CORE_VER} executables to releases directory...${GREY}[$(pwd)]${NC}"
-    rm -rf ../releases/$__ARCH
-    mkdir -p ../releases/$__ARCH
-    echo "${__CORE_VER}" > ../releases/$__ARCH/VERSION
-    cp $(find coreutils-${__CORE_VER}/src/ -maxdepth 1 -type f ! -name '*.*') ../releases/$__ARCH
-  done
-  unset __PATH __STRIP
+    __PATH="$PATH"
+    for I in $(seq 0 $((${#__MUSL_ARCH[@]} - 1))); do
+      [ -n "$1" -a "$1" != "${__MUSL_ARCH[$I]}" ] && continue
+      __ARCH=${__MUSL_ARCH[$I]}
+      __TARGET=${__MUSL_PRFX[$I]}
+      if [ $__REBUILD == N -a -e ../releases/$__ARCH/VERSION -a "$(cat ../releases/$__ARCH/VERSION 2>/dev/null)" == "${__CORE_VER}" ]; then
+        echo -e "${ORANGE}$(date +%X) ==> WARN:  Skipping coreutils v${__CORE_VER} $__ARCH build - release already exists.${GREY}[$(pwd)]${NC}"
+        continue
+      fi
+      
+      export CC="${__TARGET}-gcc"
+      echo -e "${GREY}$(date +%X) ==> DEBUG: CC=$CC${NC}"
+      __BIN_DIR="$(readlink -f $(dirname $(find ../toolchains/ -name "$CC"))/..)/bin"
+      export PATH="$__BIN_DIR:$__PATH"
+      echo -e "${GREY}$(date +%X) ==> DEBUG: PATH=$PATH${NC}"
+      __STRIP="$__BIN_DIR/strip"
+      [ -x "$__STRIP" ] || __STRIP="$(readlink -f $(find ../toolchains/${__TARGET}* -type f -executable -name '*strip' | head -n 1))"
+      echo -e "${GREY}$(date +%X) ==> DEBUG: STRIP=$__STRIP${NC}"
 
+      pushd coreutils-${__CORE_VER}
+        echo -e "${GREEN}$(date +%X) ==> INFO:  Configuring coreutils v${__CORE_VER} $__ARCH build...${GREY}[$(pwd)]${NC}"
+        make distclean
+        export FORCE_UNSAFE_CONFIGURE=1
+        export CFLAGS="-static -Os -ffunction-sections -fdata-sections"
+        export LDFLAGS='-Wl,--gc-sections'
+        ./configure --host="${__TARGET}"
+        echo -e "${GREEN}$(date +%X) ==> INFO:  Cleaning any previous coreutils v${__CORE_VER} build...${GREY}[$(pwd)]${NC}"
+        make clean
+        echo -e "${GREEN}$(date +%X) ==> INFO:  Building coreutils v${__CORE_VER} for ${__ARCH}...${GREY}[$(pwd)]${NC}"
+        make -j $__JOBS --silent || exit 2
+      popd # coreutils-${__CORE_VER}
+
+      __EXE_FILES=$(find coreutils-${__CORE_VER}/src/ -maxdepth 1 -type f ! -name '*.*' -executable | sort)
+      echo -e "${GREEN}$(date +%X) ==> INFO:  Compressing coreutils v${__CORE_VER} $__ARCH executables...${GREY}[$(pwd)]${NC}"
+      $__STRIP -s -R .comment -R .gnu.version --strip-unneeded $__EXE_FILES
+      ../bin/upx --ultra-brute $__EXE_FILES
+
+      echo -e "${GREEN}$(date +%X) ==> INFO:  Copying coreutils v${__CORE_VER} executables to releases directory...${GREY}[$(pwd)]${NC}"
+      rm -rf ../releases/$__ARCH
+      mkdir -p ../releases/$__ARCH
+      echo "${__CORE_VER}" > ../releases/$__ARCH/VERSION
+      cp $(find coreutils-${__CORE_VER}/src/ -maxdepth 1 -type f ! -name '*.*') ../releases/$__ARCH
+      
+      unset CC FORCE_UNSAFE_CONFIGURE CFLAGS LDFLAGS __STRIP __EXE_FILES __ARCH __TARGET
+    done
+    PATH="$__PATH"
+    unset __PATH
   popd # .work
 fi
 
@@ -198,28 +235,6 @@ update_packages_file() {
 
 chmod +x bin/*
 
-unset CC
-
-if [ ! -x bin/usign ]; then
-  pushd usign
-    git fetch
-    git gc
-    git reset --hard HEAD
-    git merge origin/master
-    rm -rf build
-    mkdir build
-    pushd build
-      echo -e "${GREEN}$(date +%X) ==> INFO:  Generating build system for usign...${GREY}[$(pwd)]${NC}"
-      cmake ..
-      echo -e "${GREEN}$(date +%X) ==> INFO:  Building usign...${GREY}[$(pwd)]${NC}"
-      make --silent || exit 2
-    popd # build
-  popd # usign
-  cp usign/build/usign bin/usign
-else
-  echo -e "${GREEN}$(date +%X) ==> INFO:  usign exists${GREY}[$(pwd)]${NC}"
-fi
-
 for I in $(seq 0 $((${#__MUSL_ARCH[@]} - 1))); do
   [ -n "$1" -a "$1" != "${__MUSL_ARCH[$I]}" ] && continue
   __ARCH=${__OWRT_ARCH[$I]}
@@ -237,7 +252,7 @@ for I in $(seq 0 $((${#__MUSL_ARCH[@]} - 1))); do
     echo -e "${GREEN}$(date +%X) ==> INFO:  Packaging $__FILENAME...${GREY}[$(pwd)]${NC}"
     mkdir -p ${__PKG_TMP}/usr/bin
     cp -p "$__F" ${__PKG_TMP}/usr/bin/
-    [ $__FILENAME == test ] && cp -p '[' ${__PKG_TMP}/usr/bin/
+    [ $__FILENAME == test ] && cp -p "releases/${__MUSL_ARCH[$I]}/[" ${__PKG_TMP}/usr/bin/
     chmod +x "$__F"
     #region control
     cat <<CTL > ${__PKG_TMP}/control
