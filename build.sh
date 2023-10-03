@@ -151,7 +151,7 @@ else
       [ -n "$1" -a "$1" != "${__MUSL_ARCH[$I]}" ] && continue
       __ARCH=${__MUSL_ARCH[$I]}
       __TARGET=${__MUSL_PRFX[$I]}
-      if [ $__REBUILD == N -a -e ../releases/$__ARCH/VERSION -a "$(cat ../releases/$__ARCH/VERSION 2>/dev/null)" == "${__CORE_VER}" ]; then
+      if [ $__REBUILD == N -a -e ../releases/$__ARCH/.version -a "$(cat ../releases/$__ARCH/.version 2>/dev/null)" == "${__CORE_VER}" ]; then
         echo -e "${ORANGE}$(date +%X) ==> WARN:  Skipping coreutils v${__CORE_VER} $__ARCH build - release already exists.${GREY}[$(pwd)]${NC}"
         continue
       fi
@@ -186,7 +186,7 @@ else
       echo -e "${GREEN}$(date +%X) ==> INFO:  Copying coreutils v${__CORE_VER} executables to releases directory...${GREY}[$(pwd)]${NC}"
       rm -rf ../releases/$__ARCH
       mkdir -p ../releases/$__ARCH
-      echo "${__CORE_VER}" > ../releases/$__ARCH/VERSION
+      echo "${__CORE_VER}" > ../releases/$__ARCH/.version
       cp $(find coreutils-${__CORE_VER}/src/ -maxdepth 1 -type f ! -name '*.*') ../releases/$__ARCH
       
       unset CC FORCE_UNSAFE_CONFIGURE CFLAGS LDFLAGS __STRIP __EXE_FILES __ARCH __TARGET
