@@ -13,7 +13,7 @@ __THIS_ARCH=$(uname -m)
 musl() {
   case "$1" in
     arm) echo "arm-linux-musleabi";;
-    aarch64) echo "aarch64--linux-musl";;
+    aarch64) echo "aarch64-linux-musl";;
     *) echo -e "${RED}$(date +%X) ==> ERROR: Private key not found!${NC}" 1>&2; exit 2;;
   esac
 }
