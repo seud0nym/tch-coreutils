@@ -293,8 +293,9 @@ Description:  Statically-linked full version of standard GNU $__FILENAME utility
 CTL
     #endregion
     echo "#!/bin/sh" > ${__PKG_TMP}/postrm
-    for __BIN in ${__PKG_TMP}/usr/bin/; do
-      echo "[ -e '/rom/usr/bin/$__BIN' ] && cp -a '/rom/usr/bin/$__BIN' '/usr/bin/$__BIN'" >> ${__PKG_TMP}/postrm
+    for __BIN in ${__PKG_TMP}/usr/bin/*; do
+      __EXE=$(basename $__BIN)
+      echo "[ -e '/rom/usr/bin/$__EXE' ] && cp -a '/rom/usr/bin/$__EXE' '/usr/bin/$__EXE'" >> ${__PKG_TMP}/postrm
     done
     echo "exit 0" >> ${__PKG_TMP}/postrm
     chmod +x ${__PKG_TMP}/postrm
