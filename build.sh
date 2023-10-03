@@ -10,13 +10,23 @@ __PKG_ONLY=N
 __REBUILD=N
 __THIS_ARCH=$(uname -m)
 
+musl() {
+  case "$1" in
+    arm) echo "arm-linux-musleabi";;
+    aarch64) echo "aarch64--linux-musl";;
+    *) echo -e "${RED}$(date +%X) ==> ERROR: Private key not found!${NC}" 1>&2; exit 2;;
+  esac
+}
+
 if [ $__THIS_ARCH == x86_64 -o $__THIS_ARCH == aarch64 ]; then
-  __MUSL_ARCH=(arm aarch64)
-  __MUSL_PRFX=(${__MUSL_ARCH[0]}-linux-musleabi ${__MUSL_ARCH[1]}-linux-musl)
+  __MUSL_ARCH=(arm arm)
   __OWRT_ARCH=(arm_cortex-a9 arm_cortex-a53)
+  __MUSL_PRFX=()
+  __MUSL_PRFX+=($(eval musl ${__MUSL_ARCH[0]}))
+  __MUSL_PRFX+=($(eval musl ${__MUSL_ARCH[1]}))
 elif [[ $__THIS_ARCH =~ ^armv[567] ]]; then
-  __MUSL_ARCH=(arm)
-  __OWRT_ARCH=(arm_cortex-a9)
+  __MUSL_ARCH=(arm arm)
+  __OWRT_ARCH=(arm_cortex-a9 arm_cortex-a53)
 else
   echo -e "${RED}$(date +%X) ==> ERROR: Unsupported build machine: ${__THIS_ARCH}!${NC}"
   exit 2
@@ -28,7 +38,7 @@ echo -e "${GREEN}$(date +%X) ==> INFO:  Checking for required keys....${GREY}[$(
 if [ "$1" == "clean" ]; then
   shift
   echo -e "${GREEN}$(date +%X) ==> INFO:  Cleaning...${GREY}[$(pwd)]${NC}"
-  rm -rf .work releases repository
+  rm -rf .work releases
 elif [ "$1" == "pkgonly" ]; then
   shift
   __PKG_ONLY=Y
@@ -239,12 +249,28 @@ for I in $(seq 0 $((${#__MUSL_ARCH[@]} - 1))); do
   [ -n "$1" -a "$1" != "${__MUSL_ARCH[$I]}" ] && continue
   __ARCH=${__OWRT_ARCH[$I]}
 
-  echo -e "${GREEN}$(date +%X) ==> INFO:  Recreating $__ARCH repository...${GREY}[$(pwd)]${NC}"
-  rm -rf ${__BASE_DIR}/repository/${__ARCH}
+  echo -e "${GREEN}$(date +%X) ==> INFO:  Cleaning $__ARCH repository...${GREY}[$(pwd)]${NC}"
   mkdir -p ${__BASE_DIR}/repository/${__ARCH}/packages
+  __OPKG_VER=$(find ${__BASE_DIR}/repository/${__ARCH}/packages/ -name 'coreutils*.ipk' -exec basename {} \;  | cut -d_ -f2 | grep -E '[0-9,-]+' | sort -u)
+  if [ -z "$__OPKG_VER" ]; then
+    __OPKG_VER="$__CORE_VER"
+  elif [ "$__OPKG_VER" == "$__CORE_VER" ]; then
+    __OPKG_VER="${__CORE_VER}-1"
+  else
+    __BASE_VER=$(echo $__OPKG_VER | cut -d- -f1)
+    if [ $__BASE_VER == $__CORE_VER ]; then
+      __REPKG=$(echo $__OPKG_VER | cut -d- -f2)
+      __OPKG_VER="${__CORE_VER}-$(( $__REPKG + 1 ))"
+    else
+      __OPKG_VER="$__CORE_VER"
+    fi
+  fi
+  rm -f ${__BASE_DIR}/repository/${__ARCH}/packages/*
+  echo -e "${GREY}$(date +%X) ==> DEBUG: Package version: $__OPKG_VER (coreutils v$__CORE_VER)${NC}"
 
   if [ "$__ARCH" == "arm_cortex-a53" -a "${__MUSL_ARCH[$I]}" == "arm" ]; then
-    echo "**WARNING:** These are 32-bit binaries, because the 64-bit binaries currently coredump when run on a $__ARCH Technicolor device!" >${__BASE_DIR}/repository/${__ARCH}/README.md
+    echo -e "${ORANGE}$(date +%X) ==> INFO:  Packaging 32-bit binaries into $__ARCH ipk files...${GREY}[$(pwd)]${NC}"
+    echo "**WARNING:** These are 32-bit binaries, because 64-bit binaries currently coredump when run on a $__ARCH Technicolor device!" >${__BASE_DIR}/repository/${__ARCH}/README.md
   fi
 
   for __F in $(find releases/${__MUSL_ARCH[$I]}/ -mindepth 1 -maxdepth 1 -executable ! -name '\[' | sort); do
@@ -257,7 +283,7 @@ for I in $(seq 0 $((${#__MUSL_ARCH[@]} - 1))); do
     #region control
     cat <<CTL > ${__PKG_TMP}/control
 Package: coreutils-$__FILENAME
-Version: $__CORE_VER
+Version: $__OPKG_VER
 Depends: coreutils
 License: GPL-3.0-or-later
 Section: utils
@@ -272,8 +298,8 @@ CTL
     done
     echo "exit 0" >> ${__PKG_TMP}/postrm
     chmod +x ${__PKG_TMP}/postrm
-    bin/make_ipk.sh "${__BASE_DIR}/repository/${__ARCH}/packages/coreutils-${__FILENAME}_${__CORE_VER}_${__ARCH}.ipk" "$__PKG_TMP" || exit 1
-    update_packages_file "${__ARCH}" "${__BASE_DIR}/repository/${__ARCH}/packages/coreutils-${__FILENAME}_${__CORE_VER}_${__ARCH}.ipk"
+    bin/make_ipk.sh "${__BASE_DIR}/repository/${__ARCH}/packages/coreutils-${__FILENAME}_${__OPKG_VER}_${__ARCH}.ipk" "$__PKG_TMP" || exit 1
+    update_packages_file "${__ARCH}" "${__BASE_DIR}/repository/${__ARCH}/packages/coreutils-${__FILENAME}_${__OPKG_VER}_${__ARCH}.ipk"
     clear_work_dir
   done
 
@@ -281,7 +307,7 @@ CTL
   #region control
   cat <<CTL > $__PKG_TMP/control
 Package: coreutils
-Version: $__CORE_VER
+Version: $__OPKG_VER
 License: GPL-3.0-or-later
 Section: utils
 Architecture: $__ARCH
@@ -291,8 +317,8 @@ Description:  Statically-linked full versions of standard GNU utilities. If an e
  usually smaller, at the expense of reduced functionality.
 CTL
   #endregion
-  bin/make_ipk.sh "${__BASE_DIR}/repository/${__ARCH}/packages/coreutils_${__CORE_VER}_${__ARCH}.ipk" "$__PKG_TMP" || exit 1
-  update_packages_file "${__ARCH}" "${__BASE_DIR}/repository/${__ARCH}/packages/coreutils_${__CORE_VER}_${__ARCH}.ipk"
+  bin/make_ipk.sh "${__BASE_DIR}/repository/${__ARCH}/packages/coreutils_${__OPKG_VER}_${__ARCH}.ipk" "$__PKG_TMP" || exit 1
+  update_packages_file "${__ARCH}" "${__BASE_DIR}/repository/${__ARCH}/packages/coreutils_${__OPKG_VER}_${__ARCH}.ipk"
   clear_work_dir
 
   echo -e "${GREEN}$(date +%X) ==> INFO:  Signing Packages file...${GREY}[$(pwd)]${NC}"
