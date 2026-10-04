@@ -128,7 +128,7 @@ if [ ! -x bin/upx -o "$(bin/upx -V 2>/dev/null | grep ^upx | grep -o '[0-9.]*')"
 fi
 
 echo -e "${GREEN}$(date +%X) ==> INFO:  Determining latest coreutils version....${GREY}[$(pwd)]${NC}"
-__CORE_VER=$(curl -sL http://ftp.gnu.org/gnu/coreutils | grep -o 'coreutils-[0-9.]*[0-9]' | cut -d- -f2 | sort -un | tail -n1)
+__CORE_VER=$(curl -sL http://ftp.gnu.org/gnu/coreutils | grep -o 'coreutils-[0-9.]*[0-9]' | cut -d- -f2 | sort -uV | tail -n1)
 echo -e "${GREY}$(date +%X) ==> DEBUG: Latest coreutils version: $__CORE_VER${NC}"
 __BASE_DIR=$(pwd)
 
