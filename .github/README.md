@@ -76,3 +76,7 @@ The following packages are required to be installed before running `build.sh`:
 * git
 
 The usign private key `seud0nym-private.key` is also required to sign the Packages file.
+
+### Toolchain
+
+`build.sh` builds the musl cross toolchain with the `musl-cross-make` submodule, after merging its latest `master`, on both x86_64 and aarch64 build machines (it previously downloaded a prebuilt toolchain from musl.cc on x86_64). `config/musl-cross-make-arm-cortex-a9.mak` pins its tool versions and options (Cortex-A9, soft-float). The configuration and the `musl-cross-make` commit the toolchain was built from are recorded in `toolchains/`. An existing toolchain is removed and rebuilt when its configuration file has been added, changed or removed, or when it was built from a `musl-cross-make` commit older than the submodule commit. Updating the submodule therefore brings its patches to the toolchain, such as the musl fixes for CVE-2025-26519, CVE-2026-40200 and CVE-2026-6042 (`musl-cross-make` 227df8b).

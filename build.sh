@@ -57,35 +57,57 @@ echo -e "${GREY}$(date +%X) ==> DEBUG: Maximum make jobs: $__JOBS${NC}"
 git submodule init
 git submodule update
 
+# The toolchain is built from the config/musl-cross-make-*.mak whose TARGET matches (pinned versions and options),
+# or from a TARGET-only config.mak if there is none. toolchains/<target>.mak and toolchains/<target>.commit record the
+# config and the musl-cross-make commit it was built from. A toolchain built from another config, or from a
+# musl-cross-make older than the submodule commit (for example one without its musl security patches), is removed
+# and rebuilt.
+__MCM_MIN="$(git rev-parse HEAD:musl-cross-make)"
 [ ! -d toolchains ] && mkdir toolchains
 for I in $(seq 0 $((${#__MUSL_PRFX[@]} - 1))); do
   [ -n "$1" -a "$1" != "${__MUSL_ARCH[$I]}" ] && continue
   __TARGET=${__MUSL_PRFX[$I]}
+  __CONFIG="$(grep -l "^TARGET *= *${__TARGET}\$" config/musl-cross-make-*.mak 2>/dev/null | head -n 1)"
+  if [ -n "$(find toolchains/ -name ${__TARGET}-gcc)" ]; then
+    __STALE=""
+    if [ -n "$__CONFIG" ] && ! cmp -s "$__CONFIG" toolchains/${__TARGET}.mak; then
+      __STALE="was not built from $__CONFIG"
+    elif [ -z "$__CONFIG" -a -e toolchains/${__TARGET}.mak ]; then
+      __STALE="was built from a config that no longer exists"
+    elif ! git -C musl-cross-make merge-base --is-ancestor $__MCM_MIN "$(cat toolchains/${__TARGET}.commit 2>/dev/null)" 2>/dev/null; then
+      __STALE="predates musl-cross-make ${__MCM_MIN:0:7}"
+    fi
+    if [ -n "$__STALE" ]; then
+      echo -e "${ORANGE}$(date +%X) ==> INFO:  $__TARGET toolchain $__STALE - removing it...${GREY}[$(pwd)]${NC}"
+      rm -rf toolchains/${__TARGET} toolchains/${__TARGET}-* toolchains/${__TARGET}.mak toolchains/${__TARGET}.commit toolchains/bin/${__TARGET}-* toolchains/lib/gcc/${__TARGET} toolchains/libexec/gcc/${__TARGET}
+    fi
+  fi
   if [ -n "$(find toolchains/ -name ${__TARGET}-gcc)" ]; then
     echo -e "${GREEN}$(date +%X) ==> INFO:  Found $__TARGET toolchain${GREY}[$(pwd)]${NC}"
-  elif [ "$__THIS_ARCH" == "x86_64" -o "$__THIS_ARCH" == "${__MUSL_ARCH[$I]}" ]; then
-    echo -e "${GREEN}$(date +%X) ==> INFO:  Downloading $__TARGET toolchain...${GREY}[$(pwd)]${NC}"
-    [ "$__THIS_ARCH" == "${__MUSL_ARCH[$I]}" ] && __MUSL_TYPE="native" || __MUSL_TYPE="cross"
-    curl -L https://musl.cc/${__TARGET}-${__MUSL_TYPE}.tgz -o /tmp/${__TARGET}-${__MUSL_TYPE}.tgz
-    echo -e "${GREEN}$(date +%X) ==> INFO:  Extracting $__TARGET $__MUSL_TYPE toolchain...${GREY}[$(pwd)]${NC}"
-    tar -xzf /tmp/${__TARGET}-${__MUSL_TYPE}.tgz -C toolchains
-    rm -f /tmp/${__TARGET}-${__MUSL_TYPE}.tgz
   else
     echo -e "${GREEN}$(date +%X) ==> INFO:  Updating musl-cross-make submodule...${GREY}[$(pwd)]${NC}"
-    pushd musl-cross-make
+    pushd musl-cross-make || exit 2
       git fetch
       git gc
       git reset --hard HEAD
       git merge origin/master
     popd #musl-cross-make
     echo -e "${GREEN}$(date +%X) ==> INFO:  Building $__TARGET toolchain...${GREY}[$(pwd)]${NC}"
-    echo "TARGET = $__TARGET" > musl-cross-make/config.mak
+    if [ -n "$__CONFIG" ]; then
+      echo -e "${GREY}$(date +%X) ==> DEBUG: Using $__CONFIG${NC}"
+      cp "$__CONFIG" musl-cross-make/config.mak
+    else
+      echo "TARGET = $__TARGET" > musl-cross-make/config.mak
+    fi
     make -C musl-cross-make clean --silent
     make -C musl-cross-make -j $__JOBS --silent || exit 2
     echo -e "${GREEN}$(date +%X) ==> INFO:  Installing $__TARGET toolchain...${GREY}[$(pwd)]${NC}"
-    make -C musl-cross-make OUTPUT="/" DESTDIR="$(pwd)/toolchains" install --silent
+    make -C musl-cross-make OUTPUT="/" DESTDIR="$(pwd)/toolchains" install --silent || exit 2
+    git -C musl-cross-make rev-parse HEAD > toolchains/${__TARGET}.commit
+    [ -n "$__CONFIG" ] && cp "$__CONFIG" toolchains/${__TARGET}.mak
   fi
 done
+unset __CONFIG __MCM_MIN __STALE
 
 if [ ! -x bin/usign ]; then
   pushd usign
