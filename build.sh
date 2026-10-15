@@ -193,7 +193,7 @@ else
         export FORCE_UNSAFE_CONFIGURE=1
         export CFLAGS="-static -Os -ffunction-sections -fdata-sections"
         export LDFLAGS='-Wl,--gc-sections'
-        ./configure --host="${__TARGET}"
+        ./configure --host="${__TARGET}" --enable-install-program=kill,uptime
         echo -e "${GREEN}$(date +%X) ==> INFO:  Cleaning any previous coreutils v${__CORE_VER} build...${GREY}[$(pwd)]${NC}"
         make clean
         echo -e "${GREEN}$(date +%X) ==> INFO:  Building coreutils v${__CORE_VER} for ${__ARCH}...${GREY}[$(pwd)]${NC}"
