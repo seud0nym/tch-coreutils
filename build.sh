@@ -292,7 +292,7 @@ for I in $(seq 0 $((${#__MUSL_ARCH[@]} - 1))); do
 
   if [ "$__ARCH" == "arm_cortex-a53" -a "${__MUSL_ARCH[$I]}" == "arm" ]; then
     echo -e "${ORANGE}$(date +%X) ==> INFO:  Packaging 32-bit binaries into $__ARCH ipk files...${GREY}[$(pwd)]${NC}"
-    echo "**WARNING:** These are 32-bit binaries, because 64-bit binaries currently coredump when run on a $__ARCH Technicolor device!" >${__BASE_DIR}/repository/${__ARCH}/README.md
+    echo "**NOTE:** These are 32-bit binaries, like most of the stock userland on the Telstra Smart Modem Gen 3. The 64-bit builds of September 2023 crashed because of a bug in the UPX 3.96 arm64 NRV2D decompressor (fixed in UPX 4.2.4), not because of the device." >${__BASE_DIR}/repository/${__ARCH}/README.md
   fi
 
   for __F in $(find releases/${__MUSL_ARCH[$I]}/ -mindepth 1 -maxdepth 1 -executable ! -name '\[' | sort); do
